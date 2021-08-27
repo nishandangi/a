@@ -3,11 +3,11 @@
 $name = $_POST['name'];
 $email= $_POST['email'];
 $message= $_POST['message'];
-$file= $_POST['file'];
+
 
 $to = "nishandangi450@gmail.com";
 $subject = "Mail From website";
-$txt ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $message. "\r\ file =" . $file ;
+$txt ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $message.  ;
             
 $headers = "From: noreply@nishandangi.com.np" . "\r\n" .
 "CC: ns.nishandangi@gmail.com";
