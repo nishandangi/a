@@ -9,7 +9,10 @@ $txt ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $message
 $headers = "From: ns.nishandangi@gmai.com" . "\r\n" .
 "CC: nslove45@gmail.com";
 if($email!=NULL){
-    mail($to,$subject,$txt,$headers);
+    mail("$to" , "$subject", "$txt" ,"$headers");
+}
+else {
+    echo "please fill out all fileds";
 }
 //redirect
 header("Location:thankyou.html");
