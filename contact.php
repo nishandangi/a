@@ -1,18 +1,13 @@
 <?php
-//get data from form  
-$name = $_POST['name'];
-$email= $_POST['email'];
-$message= $_POST['message'];
 $to = "ns.nishandangi@gmail.com";
 $subject = "Mail From ns";
-$txt ="Name = ". $name . "\r\n  Email = " . $email . "\r\n Message =" . $message;
-$headers = "From: nishandangi450@gmail.com";
-if($email!=NULL){
-    mail("$to" , "$subject", "$message","$headers");
+$message= "oh my god i received";
+$headers= "From: nishandangi450@gmail.com";
+
+if  (mail ($to, $subject, $message, $headers)){
+    echo "mail send successfully"
+    }
+else  {
+    echo " can not send mail because your hosting provider .github doesnot allows you to receive a mail" ;
 }
-else {
-    echo "please fill out all fileds";
-}
-//redirect
-header("Location:thankyou.html");
 ?>
