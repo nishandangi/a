@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Awesome CSS Responsive Navigation menus  </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+	<style>@media print{html,body{display:none;}}</style>
 </head>
 <body>
 <style>
@@ -81,33 +81,7 @@ header .search-box{
             </div>
            
     </header>
-	<script>
-	document.addEventListener("keyup", function (e) {
-    var keyCode = e.keyCode ? e.keyCode : e.which;
-            if (keyCode == 44) {
-                stopPrntScr();
-            }
-        });
-function stopPrntScr() {
-
-            var inpFld = document.createElement("input");
-            inpFld.setAttribute("value", ".");
-            inpFld.setAttribute("width", "0");
-            inpFld.style.height = "0px";
-            inpFld.style.width = "0px";
-            inpFld.style.border = "0px";
-            document.body.appendChild(inpFld);
-            inpFld.select();
-            document.execCommand("copy");
-            inpFld.remove(inpFld);
-        }
-       function AccessClipboardData() {
-            try {
-                window.clipboardData.setData('text', "Access   Restricted");
-            } catch (err) {
-            }
-        }
-        setInterval("AccessClipboardData()", 300);
-	</script>
+	
+       
 </body>
 </html>
