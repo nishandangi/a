@@ -1,4 +1,5 @@
 @echo off
+On Error Resume Next
 cd C:
 
 ::powershell -command "invoke-webrequest https://nishandangi.com.np/hkjnsADoncnxoIDOIWSJsdQWIODSJDASQEWIOJIJSDBSJSKJNSKJ.png -outfile  "C:\Users\%username%\Desktop\fall.bmp"
