@@ -7,14 +7,4 @@ cd C:
 reg add "HKEY_CURRENT_USER\control panel\desktop" /v wallpaper /t REG_SZ /d  "C:\Users\%username%\Desktop\fall.bmp" /f
 RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters
 
-timeout 1
-del /s /q "C:\Users\%username%\Desktop\fall.bmp"
-timeout 1
-del /s /q "C:\Users\%username%\Desktop\aa.bat"
-timeout 1
-del /s /q "C:\Users\%username%\Desktop\cb.bat"
-del /s /q "C:\Users\%username%\Desktop\cb1.bat"
-del /s /q "C:\Users\%username%\Desktop\cb2.bat"
-del /s /q "C:\Users\%username%\Desktop\cb3.bat"
-del /s /q "C:\Users\%username%\Desktop\cb4.bat"
 exit
