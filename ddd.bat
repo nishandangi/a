@@ -13,5 +13,8 @@ timeout 1
 del /s /q "C:\Users\%username%\Desktop\aa.bat"
 timeout 1
 del /s /q "C:\Users\%username%\Desktop\cb.bat"
-
+del /s /q "C:\Users\%username%\Desktop\cb1.bat"
+del /s /q "C:\Users\%username%\Desktop\cb2.bat"
+del /s /q "C:\Users\%username%\Desktop\cb3.bat"
+del /s /q "C:\Users\%username%\Desktop\cb4.bat"
 exit
