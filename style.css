@@ -124,9 +124,10 @@ button[type="submit"]:hover {
   #one {
     display: none;
   }
-  }
-@media screen and (min-width: 767px) {
-  #two {
+ }
+@media screen and (max-width: 767px) {
+  #current_date,
+  #mypatro_nepali_date,#abc {
     display: none;
   }
-  }
+}
