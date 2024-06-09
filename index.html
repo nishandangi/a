@@ -4,96 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Share Market Of Nepal</title><link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-<style>
-  * { margin: 0; padding: 0; font-weight: bol; font-family: 'Space Mono', monospace; }
-  .header { display: flex; align-items: center; justify-content: space-around; padding: 10px; height:50px; position: fixed;width:100%;
-            
-}
-    iframe { width: 100%; height: 850px; border: none; }
-  .dropdown { position: relative; display: inline-block; background-color: #4CAF50; color: white; padding: 10px; border-radius: 4px; border: 2px solid #4CAF50; cursor: pointer; }
-  .dropdown:hover { background-color: #45a049; }
-  .dropdown-content { display: none; position: absolute; background-color: #f9f9f9; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 4px; }
-  .dropdown-content button { color: black; padding: 12px 16px; text-decoration: none; display: block; border: none; background: none; width: 100%; text-align: left; }
-  .dropdown-content button:hover { background-color: #808080; }
-  .dropdown:hover .dropdown-content { display: block; }
-  #current_date, #mypatro_nepali_date { color: white; }
- #switchBtn { position: fixed; top: 10px; right: 10px; background-color:#800040; color: black; padding: 10px; border-radius: 5px; border: none; cursor: pointer; border-radius:50px; }
- #switchBtn2 { position: fixed; top: 10px; left: 10px; background-color:#800040; color: black; padding: 10px; border-radius: 5px; border: none; cursor: pointer; border-radius:50px; }
-#Qnote {
-    position: fixed;
-    top: 100px;
-    width: 200px;
-    background-color:  darkgreen;}
-form {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-}
+ <link rel="stylesheet" type="text/css" href="https://nishandangi.github.io/ns/style.css">
 
-input[type="text"], textarea {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-button[type="submit"] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
-#header {
-    background-color: #00ff00;}
-  #myDiv {width: 50px;
-            height: 50px;
-            border-radius: 50px;
-            background-color:  darkgreen;
-            position: fixed;
-            top: 0;}
-</style>
 </head>
 <body>
 
+
+
 <div class="header" id="header">
-<Div class="dropdown">
-  <div  id="current_date"></div>
- <div   id="mypatro_nepali_date" > </div>
 
-</Div>
-<Div class="dropdown">
-<div   id="Details" > </div>
-<div id="timeDisplay"></div>
-</Div>
 
-<div class="dropdown">Quick Note<div class="dropdown-content">
-      
-<div id="note">
-<form id="myForm" action="https://docs.google.com/forms/d/e/1FAIpQLScFwtfl1qrzTZQxnx9ebSVR6Rr7L2ZOGDufv_NGywF59dLy4Q/formResponse" method="post">
-    <input name="entry.498374337" type="text" placeholder="Single Line Text">
-       <button type="submit">Submit</button>
-</form>
-
-</div>
-
-          
-   </div></div>
-
-  <div class="dropdown">Share Market<div class="dropdown-content">
+<!1..... for mobile view........>
+<div class="dropdown" id="two">Menus<div class="dropdown-content">
       <button id="shareSansarBtn">Share Sansar</button>
       <button id="meroLaganiBtn">Mero Lagani</button>
       <button id="NepsealphaBtn">Nepse Alpha</button>
@@ -103,11 +25,54 @@ button[type="submit"]:hover {
       <button id="onlinekhabarBtn">Online Khabar</button>
       <button id="investopaperBtn">Invest Paper</button>
        <button id="arthasansarBtn">Artha Sansar🚗</button>
+      <button id="nepalipaisa">Nepali Paisa</button>
+      <button id="arthakendra">Artha Kendra</button>
+      <button id="arthapath">Artha Path</button>
+      <button id="arthatantra">Arthatantra</button>
+      <button id="insurancekhabar">Insurance Khabar</button>
+       <button id="arthaplus">Artha Plus</button>  
+      <button id="corporatenepal">Corporate Nepal🚗</button>
+    <button id="moniterypolicy">Monitery Policy</button>
+      <button id="macroeconomics">Macro Economy</button>
+     <button id="interestrate">Interest Rate</button>
 
-    
-   </div></div>
 
-<div class="dropdown">Share Market+<div class="dropdown-content">
+</div></div>
+
+
+<!1.............>
+<Div class="dropdown">
+  <div  id="current_date" ></div>
+ <div   id="mypatro_nepali_date" > </div>
+<div id="timeDisplay"></div></Div>
+
+
+<!2.............>
+<div class="dropdown">Quick Note<div class="dropdown-content">
+ <div id="note">
+<form id="myForm" action="https://docs.google.com/forms/d/e/1FAIpQLScFwtfl1qrzTZQxnx9ebSVR6Rr7L2ZOGDufv_NGywF59dLy4Q/formResponse" method="post">
+    <input name="entry.498374337" type="text" placeholder="Paste/write your notes">
+       <button type="submit">Submit</button>
+</form></div>
+</div></div>
+
+
+<!3.............>
+<div class="dropdown" id="one">Share Market<div class="dropdown-content">
+      <button id="shareSansarBtn">Share Sansar</button>
+      <button id="meroLaganiBtn">Mero Lagani</button>
+      <button id="NepsealphaBtn">Nepse Alpha</button>
+      <button id="chukulBtn">Chukul News</button>
+      <button id="arthasarokarBtn">Artha Sarokar</button>
+      <button id="beemapostBtn">Beema Post</button>
+      <button id="onlinekhabarBtn">Online Khabar</button>
+      <button id="investopaperBtn">Invest Paper</button>
+       <button id="arthasansarBtn">Artha Sansar🚗</button>
+</div></div>
+
+
+<!4.............>
+<div class="dropdown" id="one">Share Market+<div class="dropdown-content">
       <button id="nepalipaisa">Nepali Paisa</button>
       <button id="arthakendra">Artha Kendra</button>
       <button id="arthapath">Artha Path</button>
@@ -115,387 +80,30 @@ button[type="submit"]:hover {
       <button id="insurancekhabar">Insurance Khabar</button>
        <button id="arthaplus">Artha Plus</button>  
  <button id="corporatenepal">Corporate Nepal🚗</button>
-  
-    
-   </div></div>
+  </div></div>
 
 
-
-
-
-
-
-
-
-<div class="dropdown">eNewsPaper<div class="dropdown-content">
-      <button id="ekantipurpaperBtn">eKantipur Daily</button>
-      <button id="eannapurnaBtn">Nepal Rastriya Dainik</button>
-     <button id="ekantipurBtn">eKantipur Business</button>
-      <button id="rasyriyadainikBtn">Rastriya Daink</button>
-<button id="gorkhapatraBtn">Gorkhapatra Daink</button>
-<button id="nagarikdainikBtn">Nagarik Daink🚗</button>
-<button id="annapurnapostBtn">Annapurna Post🚗</button>
-
-
-
-
-   </div></div>
-
-<div class="dropdown">NEPAl RASTRA BANK<div class="dropdown-content">
+<!5.............>
+<div class="dropdown" id="one">NEPAl RASTRA BANK<div class="dropdown-content">
 <button id="moniterypolicy">Monitery Policy</button>
       <button id="macroeconomics">Macro Economy</button>
      <button id="interestrate">Interest Rate</button>
-
- 
-   </div></div>
+</div></div>
 
 
+<!6.............>
+<!addmore...>
 
-<div class="dropdown">Shortcut<div class="dropdown-content">
-      <button id="sha">Settlement</button>
-      <button id="shb">Equity</button>
-      <button id="shc">Asets</button>
-          <button id="shd">Live Chart</button>
-          
-
-   </div></div>
-
-
-
+<!ending /div>
 </div>
 
 
 
-
-
-<img  id="switchBtn" src="https://cdn0.iconfinder.com/data/icons/bold-multimedia-player-button/512/media_player_button_24-512.png" width="50px">
-
-
+<!frame ............>
 <div class="iframe-container" id="iframeContainer">
-<iframe src="https://docs.google.com/spreadsheets/d/1Qf3bfx7ezNPrUjIJExljWrWLvCL-9zG3qS4WPAdSaVo/edit?resourcekey#gid=573678963" ></iframe>
+<iframe src="https://docs.google.com/spreadsheets/d/1Qf3bfx7ezNPrUjIJExljWrWLvCL-9zG3qS4WPAdSaVo/edit?resourcekey#gid=573678963" ></iframe></div>
 
-</div>
-
-
-<div id="myDiv"></div>
-
-
-
-
-
-
-
-<script>
-
-
-
-document.getElementById('myForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var formData = new FormData(this);
-    fetch(this.action, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-    }).then(function(response) {
-        console.log('Form submitted successfully!');
-        // Clear the input fields
-        var form = document.getElementById('myForm');
-        form.reset();
-    }).catch(function(error) {
-        console.error('Error submitting form:', error);
-    });
-});
-
-document.getElementById('switchBtn').addEventListener('click', toggleFullscreen);
-
-var isFullscreen = false; // Track the current state
-
-function toggleFullscreen() {
-  var elem = document.documentElement; // Get the documentElement (<html>) to display the page in fullscreen
-
-  if (!isFullscreen) { // If not currently in fullscreen mode, enter fullscreen mode
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-      elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-      elem.msRequestFullscreen();
-    }
-    isFullscreen = true;
-  } else { // If currently in fullscreen mode, exit fullscreen mode
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
-      document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
-      document.msExitFullscreen();
-    }
-    isFullscreen = false;
-  }
-}
-
-
-
-
-
-
-
-
-
-function displayTime() {
-  let date = new Date();
-  let time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-  document.getElementById('timeDisplay').innerHTML = time;
-}
-
-setInterval(displayTime, 1000);
-
-
-
-
-
-
-
-
-
-
-document.getElementById('switchBtn').addEventListener('click', function() {
-  var header = document.getElementById('header');
-  if (header.style.display === "none") {
-    header.style.display = "flex";
-  } else {
-    header.style.display = "none";}});
-
-dragElement(document.getElementById("switchBtn"));
-
-function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  elmnt.onmousedown = dragMouseDown;
-
-  function dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
-    document.onmousemove = elementDrag;
-  }
-
-  function elementDrag(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // calculate the new cursor position:
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-  }
-
-  function closeDragElement() {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-}
-
-
-
-
-
-
-let _mypatroDateFormat = 2; // Choose the format you prefer
-let _mypatroResponseType = 'html'; // Response type
-let script = document.createElement('script');
-script.src = 'https://mypatro.com/resources/nepali_date/nepali_date.js'; // API script
-document.head.appendChild(script);
-
-
-
-let date = new Date();
-let options = { year: 'numeric', month: 'long', day: 'numeric' };
-document.getElementById("current_date").innerHTML = date.toLocaleDateString("en-US", options);
-let currentHour = date.getHours();
-// List of specific dates
-let specificDates = [
-    new Date(2024, 0, 11), // Prithvi Jayanti
-    new Date(2024, 0, 15), // Maghe Sankranti
-    new Date(2024, 0, 30), // Martyrs' Day
-    new Date(2024, 1, 10), // Sonam Losar
-    new Date(2024, 1, 10), // Ghyalpo Losar
-    new Date(2024, 1, 19), // Prajatantra Diwas
-    new Date(2024, 2, 8),  // Maha Shivaratri
-    new Date(2024, 2, 8),  // International Women's Day
-    new Date(2024, 3, 8),  // Ghode Jatra
-    new Date(2024, 3, 10), // Ramjan Edul Fikra
-    new Date(2024, 3, 13), // Nepali New Year
-    new Date(2024, 3, 16), // Ram Navami
-    new Date(2024, 3, 24), // Loktantra Diwas
-    new Date(2024, 4, 1),  // Labour Day
-    new Date(2024, 4, 23), // Buddha Jayanti
-    new Date(2024, 4, 29), // Ganatantra Diwas
-    new Date(2024, 5, 17), // Edul Aajaha
-    new Date(2024, 7, 19), // Raksha Bandhan
-    new Date(2024, 7, 20), // Gai Jatra
-    new Date(2024, 7, 26), // Shree Krishna Janmashtami
-    new Date(2024, 7, 26), // Gaura Parba
-    new Date(2024, 8, 6),  // Hartalika Teej
-    new Date(2024, 8, 7),  // Nijamati Sewa Diwas
-    new Date(2024, 8, 8),  // Rishi Panchami
-    new Date(2024, 8, 17), // Indra Jatra
-    new Date(2024, 8, 19), // Constitution Day
-    new Date(2024, 9, 3),  // Ghatasthapana
-    new Date(2024, 9, 10), // Fulpati
-    new Date(2024, 9, 11), // Maha Ashtami
-    new Date(2024, 9, 12), // Maha Navami
-    new Date(2024, 9, 13), // Vijaya Dashami
-    new Date(2024, 9, 14), // Ekadashi
-    new Date(2024, 9, 15), // Dwadashi
-    new Date(2024, 9, 17), // Kojagrat Purnima
-    new Date(2024, 10, 1), // Laxmi Puja
-    new Date(2024, 10, 2), // Govardhan Puja
-    new Date(2024, 10, 3), // Bhai Tika
-    new Date(2024, 10, 7), // Chhath Puja
-    new Date(2024, 10, 15), // Guru Nanak Jayanti
-    new Date(2024, 11, 15), // Udhauli Parva
-    new Date(2024, 11, 25), // Christmas Day
-    new Date(2024, 11, 30), // Tamu Losar
-    new Date(2025, 0, 11),  // Prithvi Jayanti
-    new Date(2025, 0, 14),  // Maghe Sankranti
-    new Date(2025, 0, 29),  // Martyrs' Day
-    new Date(2025, 0, 30),  // Sonam Losar
-    new Date(2025, 1, 19),  // Prajatantra Diwas
-    new Date(2025, 1, 26),  // Maha Shivaratri
-    new Date(2025, 1, 28),  // International Women's Day
-    new Date(2025, 2, 8),   // Ghode Jatra
-    new Date(2025, 2, 13),  // Ramjan Edul Fikra
-    new Date(2025, 2, 14),  // Nepali New Year
-    new Date(2025, 2, 29)   // March 29, 2025
-];
-
-// Check if the current date is in the list of specific dates or a Friday or a Saturday
-let dayOfWeek = date.getDay(); // getDay() returns the day of the week: 0 (Sunday) to 6 (Saturday)
-let isSpecificDate = specificDates.some(d => 
-    d.getFullYear() === date.getFullYear() && 
-    d.getMonth() === date.getMonth() && 
-    d.getDate() === date.getDate()
-);
-
-if(isSpecificDate || dayOfWeek === 5 || dayOfWeek === 6) {
-    // If the current date is in the list of specific dates or a Friday or a Saturday, change the background color of the elements to red
-    Array.from(document.getElementsByClassName("dropdown")).forEach(el => el.style.backgroundColor = "red");    
-  document.getElementById("header").style.backgroundColor = "#9F0000";
- document.getElementById("myDiv").style.backgroundColor = "#FF0000";
-document.getElementById("Details").innerHTML = "OFF Day";
-
-}
-
-else if (currentHour < 11 || currentHour >= 15) {
-    // If the current time is before 11:00 or after 15:00, set the details to "OFF time"
- Array.from(document.getElementsByClassName("dropdown")).forEach(el => el.style.backgroundColor = "red");    
-  document.getElementById("header").style.backgroundColor = "#9F0000";
- document.getElementById("myDiv").style.backgroundColor = "#FF0000";
-document.getElementById("Details").innerHTML = "OFF time";
-} 
-
-else {
-document.getElementById("Details").innerHTML = "ON Day";
-};
-
-
-
-
-
-// Event listeners for buttons
-document.getElementById('shareSansarBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.sharesansar.com/category/latest" allowfullscreen></iframe>';});
-
-document.getElementById('meroLaganiBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://merolagani.com/NewsList.aspx" allowfullscreen></iframe>';});
-
-document.getElementById('NepsealphaBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://nepsealpha.com/all-news?cid=1" allowfullscreen></iframe>';});
-
-document.getElementById('chukulBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://chukul.com/announcement" allowfullscreen></iframe>';});
-document.getElementById('arthasarokarBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://arthasarokar.com/category/market-affairs" allowfullscreen></iframe>';});
-
-
-document.getElementById('beemapostBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.beemapost.com/category/stock-market/" allowfullscreen></iframe>';});
-
-document.getElementById('onlinekhabarBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.onlinekhabar.com/business/" allowfullscreen></iframe>';});
-document.getElementById('investopaperBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://nepali.investopaper.com/%e0%a4%b6%e0%a5%87%e0%a4%af%e0%a4%b0-%e0%a4%ac%e0%a4%9c%e0%a4%be%e0%a4%b0/" allowfullscreen></iframe>';});
-document.getElementById('ekantipurBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://ekantipur.com/business" allowfullscreen></iframe>';});
-document.getElementById('ekantipurpaperBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://epaper.ekantipur.com/kantipur" allowfullscreen></iframe>';});
-document.getElementById('arthaplus').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://arthaplus.com/category/stak-market" allowfullscreen></iframe>';});
-
-
-
-
-
-
-document.getElementById('eannapurnaBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://nepalrastriyadainik.com/category/economics/" allowfullscreen></iframe>';});
-
-document.getElementById('macroeconomics').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.nrb.org.np/category/current-macroeconomic-situation/?department=red" allowfullscreen></iframe>';});
-
-
-
-document.getElementById('moniterypolicy').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.nrb.org.np/category/monetary-policy/" allowfullscreen></iframe>';});
-
-document.getElementById('interestrate').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.nrb.org.np/cmfm_rates/lending_rates" allowfullscreen></iframe>';});
-
-document.getElementById('rasyriyadainikBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://rashtriyadainik.com/?cat=10" allowfullscreen></iframe>';});
-document.getElementById('shd').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="file:///C:/Users/nisha/Desktop/test.html" allowfullscreen></iframe>';});
-
-
-
-document.getElementById('gorkhapatraBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://gorkhapatraonline.com/categories/economy" allowfullscreen></iframe>';});
-document.getElementById('mypatro_nepali_date').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.hamropatro.com/" allowfullscreen></iframe>';});
-
-
-document.getElementById('nagarikdainikBtn').addEventListener('click', function() {window.open('https://nagariknews.nagariknetwork.com/economy', '_blank');});
-document.getElementById('annapurnapostBtn').addEventListener('click', function() {window.open('https://annapurnapost.com/category/economy/', '_blank');});
-document.getElementById('arthasansarBtn').addEventListener('click', function() {window.open('https://arthasansar.com/category/share-market/', '_blank');});
-document.getElementById('myDiv').addEventListener('click', function() {
-  location.reload();
-});
-document.getElementById('corporatenepal').addEventListener('click', function() {window.open('https://www.corporatenepal.com/category/market', '_blank');});
-
-document.getElementById('nepalipaisa').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.nepalipaisa.com/news" allowfullscreen></iframe>';});
-document.getElementById('arthakendra').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://arthakendra.com/category/stock-market" allowfullscreen></iframe>';});
-document.getElementById('arthapath').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.arthapath.com/category/share-market/" allowfullscreen></iframe>';});
-document.getElementById('insurancekhabar').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://insurancekhabar.com/category/news/" allowfullscreen></iframe>';});
-
-document.getElementById('arthatantra').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.arthatantra.com/category/share-news/" allowfullscreen></iframe>';});
-
-
-
-
-</script>
+<script src="https://nishandangi.github.io/ns/news.js"></script>
 
 </body>
 </html>
