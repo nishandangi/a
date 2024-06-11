@@ -186,7 +186,7 @@ document.getElementById('interestrate').addEventListener('click', function() {
   document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.nrb.org.np/cmfm_rates/lending_rates" allowfullscreen></iframe>';});
 
 document.getElementById('pdfviewer').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="/pdfviewer.html" allowfullscreen></iframe>';});
+  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://nishandangi.com.np/pdfviewer" allowfullscreen></iframe>';});
 
 
 
