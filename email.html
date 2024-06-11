@@ -1,35 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <title>Nishan Dangi</title>
-	  <link rel="shortcut icon" type="image" href="nsd.png">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-   <body>
-   
-   
-   
-   <h2>Hey you?<br><br>
-    <form class="contact" action="email.php">
-	<label> Name </label>
-	<input type="text" name="name"><br><br>
-	<label> Email </label>
-	<input type="text" name="email"><br><br>
-	<label> message </label>
-	<input type="text" name="message"><br><br>
-	
-	
-	
-	    <button class="submitbutton"> Submit</button>
-	
-	
-	</form>
-	
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+</head>
+<body>
+    <h2>Contact Us</h2>
+    <form action="process_form.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
 
-	
-	
-	</body>
-	</html>
-	
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
