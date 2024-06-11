@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate and process data (you can add more validation here)
 
     // Send email (you can customize this part)
-    $to = 'ns.nishandangi@gmail.com';
+    $to = 'nishandangi450@gmail.com';
     $subject = 'Contact Form Submission';
     $headers = "From: $name <$email>\r\n";
     $success = mail($to, $subject, $message, $headers);
