@@ -131,8 +131,8 @@ else {
 document.getElementById('shareSansarBtn').addEventListener('click', function() {
   document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.sharesansar.com/category/latest" allowfullscreen></iframe>';});
 
-document.getElementById('meroLaganiBtn').addEventListener('click', function() {
-  document.getElementById('iframeContainer').innerHTML = '<iframe src="https://merolagani.com/NewsList.aspx" allowfullscreen></iframe>';});
+document.getElementById('meroLaganiBtn').addEventListener('click', () => document.getElementById('iframeContainer').innerHTML = '<iframe src="https://merolagani.com/NewsList.aspx" allowfullscreen></iframe>');
+
 
 document.getElementById('NepsealphaBtn').addEventListener('click', function() {
   document.getElementById('iframeContainer').innerHTML = '<iframe src="https://nepsealpha.com/all-news?cid=1" allowfullscreen></iframe>';});
@@ -184,3 +184,9 @@ document.getElementById('macroeconomics').addEventListener('click', function() {
 
 document.getElementById('interestrate').addEventListener('click', function() {
   document.getElementById('iframeContainer').innerHTML = '<iframe src="https://www.nrb.org.np/cmfm_rates/lending_rates" allowfullscreen></iframe>';});
+
+document.getElementById('pdfviewer').addEventListener('click', function() {
+  document.getElementById('iframeContainer').innerHTML = '<iframe src="pdfviewer.html" allowfullscreen></iframe>';});
+
+
+
