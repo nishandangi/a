@@ -1,0 +1,56 @@
+<html><head>
+
+<style>
+#arr{position:fixed;top:100px;left:20px;
+}
+
+.button {
+ background: linear-gradient(to right, #ff416c, #ff4b2b);
+  border: none;
+  color: white;
+text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;border-radius: 10px;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.button:hover {
+  background-color: #3e8e41; /* Darker green on hover */
+}
+
+
+
+</style>
+</head>
+
+<body>
+
+<input id="pdflink" class="button" placeholder="paste/drag and drop pdf urls here...." style="width:80%;position:fixed;right:0px;top:2px;height:70px;">
+<button onclick="loadPDF()"  class="button"style="width:10%;position:fixed;left:10%;top:2px;height:70px;">Preview File</button>
+<button  class="button" onClick="window.location.reload()" style="width:10%;position:fixed;left:0px;top:2px;height:70px;">Refresh</button>
+
+<script>
+ function loadPDF() {const pdfLink = document.getElementById("pdflink").value;const pdfObject = document.createElement("object");pdfObject.data = pdfLink;pdfObject.type = "application/pdf";pdfObject.width = "100%";pdfObject.height = "100%";document.body.appendChild(pdfObject);}
+</script>
+
+<div id="arr">
+<button  class="button" onclick="document.getElementById('pdflink').value = 'https://www.nrb.org.np/red/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2017-18-2/cmes-annual-nepali-2074-75-final-1/'">2074/75</button><br>
+<button class="button" onclick="document.getElementById('pdflink').value = 'https://www.nrb.org.np/red/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2075-76/1-cmes-annual_-nepali-final-compilation-2075-76-updated/'">2075/76</button><br>
+<button class="button" onclick="document.getElementById('pdflink').value = 'https://www.nrb.org.np/red/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2076-77/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2076-77/'">2076-77</button><br>
+
+<button class="button" onclick="document.getElementById('pdflink').value = 'https://www.nrb.org.np/red/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2077-78/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2077-78/'">2077-78</button><br>
+
+<button class="button" onclick="document.getElementById('pdflink').value = 'https://www.nrb.org.np/red/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2078-79/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2078-79/'">2078-79</button><br>
+
+<button class="button" onclick="document.getElementById('pdflink').value = 'https://www.nrb.org.np/red/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2079-80/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2079-80/'">2079-80</button><br>
+
+<button class="button" onclick="document.getElementById('pdflink').value = 'https://www.nrb.org.np/red/current-macroeconomic-and-financial-situation-nepali-based-on-ten-months-data-of-2080-81/current-macroeconomic-and-financial-situation-nepali-based-on-ten-months-data-of-2080-81/'">2080-81 -10 months</button><br>
+
+
+<button class="button" onclick="document.getElementById('pdflink').value = 'https://www.nrb.org.np/red/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2080-2081/current-macroeconomic-and-financial-situation-nepali-based-on-annual-data-of-2080-2081/'">2080-2081</button><br>
+
+
+</div>
+</body></html>
