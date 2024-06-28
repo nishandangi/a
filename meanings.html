@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korean to Nepali Translator</title>
+<style>
+  table {
+    width: 100%;
+    table-layout: fixed;
+    overflow-wrap: break-word;
+    border-collapse: collapse;
+  }
+  td, th {
+    border: 1px solid #ccc;
+    padding: 2px;
+width: 1000px;
+  }
+button {
+  border-radius: 20px; /* Adjust the value to control the roundness */
+  background-color: #3498db; /* Button background color */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Padding around the text */
+ Margin: 10Px;
+  border: none; /* Remove the default button border */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effect */
+button:hover {
+  background-color: #2980b9; /* Change background color on hover */
+}
+</style>
+
+</head>
+<body>
+  <button  id="back" style="display:none;" onclick="Back();">Back</button><div id="chapters">
+  <button id="bch1-5" onclick="toggleChapterDisplay('ch1-5')">Chapter 1-5</button><button id='bch6' onclick='toggleChapterDisplay('ch6')'>Chapter 06</button>
+<button id='bch7' onclick='toggleChapterDisplay('ch7')'>Chapter 07</button>
+<button id='bch8' onclick='toggleChapterDisplay('ch8')'>Chapter 08</button>
+<button id='bch8' onclick='toggleChapterDisplay('ch8')'>Chapter 08</button>
+<button id='bch9' onclick='toggleChapterDisplay('ch9')'>Chapter 09</button>
+<button id='bch10' onclick='toggleChapterDisplay('ch10')'>Chapter 10</button>
+<button id='bch11' onclick='toggleChapterDisplay('ch11')'>Chapter 11</button>
+<button id='bch12' onclick='toggleChapterDisplay('ch12')'>Chapter 12</button>
+<button id='bch13' onclick='toggleChapterDisplay('ch13')'>Chapter 13</button>
+<button id='bch14' onclick='toggleChapterDisplay('ch14')'>Chapter 14</button>
+<button id='bch15' onclick='toggleChapterDisplay('ch15')'>Chapter 15</button>
+<button id='bch16' onclick='toggleChapterDisplay('ch16')'>Chapter 16</button>
+<button id='bch17' onclick='toggleChapterDisplay('ch17')'>Chapter 17</button>
+<button id='bch18' onclick='toggleChapterDisplay('ch18')'>Chapter 18</button>
+<button id='bch19' onclick='toggleChapterDisplay('ch19')'>Chapter 19</button>
+<button id='bch20' onclick='toggleChapterDisplay('ch20')'>Chapter 20</button>
+<button id='bch21' onclick='toggleChapterDisplay('ch21')'>Chapter 21</button>
+<button id='bch22' onclick='toggleChapterDisplay('ch22')'>Chapter 22</button>
+<button id='bch23' onclick='toggleChapterDisplay('ch23')'>Chapter 23</button>
+<button id='bch24' onclick='toggleChapterDisplay('ch24')'>Chapter 24</button>
+<button id='bch25' onclick='toggleChapterDisplay('ch25')'>Chapter 25</button>
+<button id='bch26' onclick='toggleChapterDisplay('ch26')'>Chapter 26</button>
+<button id='bch27' onclick='toggleChapterDisplay('ch27')'>Chapter 27</button>
+<button id='bch28' onclick='toggleChapterDisplay('ch28')'>Chapter 28</button>
+<button id='bch29' onclick='toggleChapterDisplay('ch29')'>Chapter 29</button>
+<button id='bch30' onclick='toggleChapterDisplay('ch30')'>Chapter 30</button>
+<button id='bch31' onclick='toggleChapterDisplay('ch31')'>Chapter 31</button>
+<button id='bch32' onclick='toggleChapterDisplay('ch32')'>Chapter 32</button>
+<button id='bch33' onclick='toggleChapterDisplay('ch33')'>Chapter 33</button>
+<button id='bch34' onclick='toggleChapterDisplay('ch34')'>Chapter 34</button>
+<button id='bch35' onclick='toggleChapterDisplay('ch35')'>Chapter 35</button>
+<button id='bch36' onclick='toggleChapterDisplay('ch36')'>Chapter 36</button>
+<button id='bch37' onclick='toggleChapterDisplay('ch37')'>Chapter 37</button>
+<button id='bch38' onclick='toggleChapterDisplay('ch38')'>Chapter 38</button>
+<button id='bch39' onclick='toggleChapterDisplay('ch39')'>Chapter 39</button>
+<button id='bch40' onclick='toggleChapterDisplay('ch40')'>Chapter 40</button>
+<button id='bch41' onclick='toggleChapterDisplay('ch41')'>Chapter 41</button>
+<button id='bch42' onclick='toggleChapterDisplay('ch42')'>Chapter 42</button>
+<button id='bch43' onclick='toggleChapterDisplay('ch43')'>Chapter 43</button>
+<button id='bch44' onclick='toggleChapterDisplay('ch44')'>Chapter 44</button>
+<button id='bch45' onclick='toggleChapterDisplay('ch45')'>Chapter 45</button>
+<button id='bch46' onclick='toggleChapterDisplay('ch46')'>Chapter 46</button>
+<button id='bch47' onclick='toggleChapterDisplay('ch47')'>Chapter 47</button>
+<button id='bch48' onclick='toggleChapterDisplay('ch48')'>Chapter 48</button>
+<button id='bch49' onclick='toggleChapterDisplay('ch49')'>Chapter 49</button>
+<button id='bch50' onclick='toggleChapterDisplay('ch50')'>Chapter 50</button>
+<button id='bch51' onclick='toggleChapterDisplay('ch51')'>Chapter 51</button>
+<button id='bch52' onclick='toggleChapterDisplay('ch52')'>Chapter 52</button>
+<button id='bch53' onclick='toggleChapterDisplay('ch53')'>Chapter 53</button>
+<button id='bch54' onclick='toggleChapterDisplay('ch54')'>Chapter 54</button>
+<button id='bch55' onclick='toggleChapterDisplay('ch55')'>Chapter 55</button>
+<button id='bch56' onclick='toggleChapterDisplay('ch56')'>Chapter 56</button>
+<button id='bch57' onclick='toggleChapterDisplay('ch57')'>Chapter 57</button>
+<button id='bch58' onclick='toggleChapterDisplay('ch58')'>Chapter 58</button>
+<button id='bch59' onclick='toggleChapterDisplay('ch59')'>Chapter 59</button>
+<button id='bch60' onclick='toggleChapterDisplay('ch60')'>Chapter 60</button>
+    </div>
+
+<table id="ch1-5" style="display: none;">
+<tr><td>CH 1  To CH 5</td><td>Count 148</td></tr><tr><td>가수</td><td>गायक</td></tr><tr><td>가요</td><td>जान्छ</td></tr><tr><td>감사합니다</td><td>धन्यवाद</td></tr><tr><td>값</td><td>मुल्य</td></tr><tr><td>강아지</td><td>कुकुरको छाउरा</td></tr><tr><td>거러요</td><td>हिड्छ</td></tr><tr><td>것</td><td>कुरा</td></tr><tr><td>고</td><td>अध्ययन</td></tr><tr><td>고르십시오</td><td>छान्नुहोस्</td></tr><tr><td>고리</td><td>उच्च चाहाना</td></tr><tr><td>공책</td><td>कपी /नोट बुक</td></tr><tr><td>괜찮습니다</td><td>ठिक छ</td></tr><tr><td>교실</td><td>कक्षा कोठा</td></tr><tr><td>귀뚜라미</td><td>कान चिर्ना किरा</td></tr><tr><td>그렇지만</td><td>त्यसो भएता पनि</td></tr><tr><td>글자</td><td>अक्षर</td></tr><tr><td>기본</td><td>आधारभूत</td></tr><tr><td>기자</td><td>पत्रकार</td></tr><tr><td>기차</td><td>रेल</td></tr><tr><td>까요</td><td>घट्छ</td></tr><tr><td>까치</td><td>लम्पुच्छ्रे चरा</td></tr><tr><td>깎아요</td><td>काट्छु /घटाउछु</td></tr><tr><td>꺼요</td><td>अफ गर्छ</td></tr><tr><td>꽃</td><td>फुल</td></tr><tr><td>넋</td><td>आत्मा</td></tr><tr><td>넓다</td><td>फराकिलो</td></tr><tr><td>네모</td><td>वर्गाकार</td></tr><tr><td>노래</td><td>गीत</td></tr><tr><td>눈</td><td>आखा /हिउँ</td></tr><tr><td>다리</td><td>खुट्टा</td></tr><tr><td>달력</td><td>पात्रो</td></tr><tr><td>닭</td><td>कुखुरा</td></tr><tr><td>대답하세요</td><td>जवाफ दिनुहोस</td></tr><tr><td>덮으세요</td><td>बन्द गर्नुहोस । छोप्नुहोस</td></tr><tr><td>도리</td><td>वीम</td></tr><tr><td>들으세요</td><td>सुन्नुहोस</td></tr><tr><td>따라하세요</td><td>पछ्‌याउनुहोस</td></tr><tr><td>많다</td><td>धेरै हुनु</td></tr><tr><td>많이드세요</td><td>धेरै खानुहोस</td></tr><tr><td>말</td><td>घोडा</td></tr><tr><td>맞는</td><td>मिल्ने</td></tr><tr><td>매우</td><td>ज्यादै</td></tr><tr><td>머리</td><td>टाउको</td></tr><tr><td>모래</td><td>पर्सि</td></tr><tr><td>모르겠어요</td><td>बुझिन थाहा छैन</td></tr><tr><td>모음</td><td>स्वर वर्णहरु</td></tr><tr><td>모자</td><td>टोपी</td></tr><tr><td>몫</td><td>शेयर</td></tr><tr><td>문</td><td>ढोका</td></tr><tr><td>문장</td><td>वाक्य</td></tr><tr><td>물</td><td>पानी</td></tr><tr><td>바빠요</td><td>व्यस्त छ</td></tr><tr><td>밖</td><td>बाहिर</td></tr><tr><td>반갑습니다</td><td>भेटेर खुशी लाग्यो</td></tr><tr><td>반친구</td><td>सहपाटी</td></tr><tr><td>받침</td><td>फाइनल कन्सोनेंट</td></tr><tr><td>별</td><td>तारा</td></tr><tr><td>보내다</td><td>पठाउनु / बिताउनु</td></tr><tr><td>보도</td><td>फुटपाथ</td></tr><tr><td>보세요</td><td>हेर्नुहोस्</td></tr><tr><td>볼펜</td><td>डपेन</td></tr><tr><td>부리</td><td>बिल</td></tr><tr><td>뿌리</td><td>जरा</td></tr><tr><td>사요</td><td>किन्छ</td></tr><tr><td>사자</td><td>सिह</td></tr><tr><td>사진</td><td>फोटो</td></tr><tr><td>산</td><td>पहाड</td></tr><tr><td>새우</td><td>झिगेमाछा</td></tr><tr><td>소리</td><td>आवाज</td></tr><tr><td>손수건</td><td>रुमाल</td></tr><tr><td>수업</td><td>कक्षा</td></tr><tr><td>순서</td><td>क्रम</td></tr><tr><td>숟가락</td><td>चम्चा</td></tr><tr><td>시겨</td><td>घडी</td></tr><tr><td>싸요</td><td>सस्तोछ</td></tr><tr><td>쓰기</td><td>लेखाई</td></tr><tr><td>쓰세요</td><td>लेख्नुहोस् । प्रयोग गर्नुहोस</td></tr><tr><td>아기</td><td>बच्चा</td></tr><tr><td>아니요</td><td>होइन । अह</td></tr><tr><td>아버지</td><td>बुवा</td></tr><tr><td>아이</td><td>बच्चा</td></tr><tr><td>아저씨</td><td>अंकल</td></tr><tr><td>아침</td><td>बिहान</td></tr><tr><td>아파요</td><td>दुख्छ</td></tr><tr><td>안녕하세요</td><td>नमस्कार</td></tr><tr><td>안녕히 가세요</td><td>राम्रोसंग जानुहोस्</td></tr><tr><td>안녕히 계세요</td><td>राम्रोसंग बस्नुहोस</td></tr><tr><td>안녕히 주무세요</td><td>राम्रोसंग सुत्नुहोस / शुभ रात्री</td></tr><tr><td>앉아요</td><td>बस्छ</td></tr><tr><td>알겠어요</td><td>बुझे</td></tr><tr><td>어깨</td><td>काध</td></tr><tr><td>없어요</td><td>छैन</td></tr><tr><td>여우</td><td>फ्याउरो</td></tr><tr><td>연습</td><td>अभ्यास</td></tr><tr><td>연필</td><td>पेन्सिल</td></tr><tr><td>예</td><td>हजुर / उदहारण</td></tr><tr><td>오이</td><td>काक्रा</td></tr><tr><td>옷</td><td>लुगा</td></tr><tr><td>와</td><td>ओहो !</td></tr><tr><td>와요</td><td>आउछ</td></tr><tr><td>왜</td><td>किन</td></tr><tr><td>외워요</td><td>स्मरण छ</td></tr><tr><td>우유</td><td>दुध</td></tr><tr><td>위에</td><td>माथि</td></tr><tr><td>음가</td><td>ध्वनी मान</td></tr><tr><td>음악</td><td>संगीत</td></tr><tr><td>의자</td><td>कुर्सि</td></tr><tr><td>이름</td><td>नाम</td></tr><tr><td>이야기하세요</td><td>कुराकानी गर्नुहोस</td></tr><tr><td>이중</td><td>डबल</td></tr><tr><td>읽다</td><td>पढ्नु</td></tr><tr><td>읽으세요</td><td>पढ्नुहोस</td></tr><tr><td>잎</td><td>पात</td></tr><tr><td>자요</td><td>सुत्छ</td></tr><tr><td>자음</td><td>व्यञ्जन वर्णहरु</td></tr><tr><td>잘</td><td>राम्रो</td></tr><tr><td>잘먹겠습니다</td><td>राम्रोसंग खानेछु</td></tr><tr><td>잘먹어습니다</td><td>राम्रोसंग खाए</td></tr><tr><td>잘잤어요?</td><td>राम्रोसंग सुत्नुभयो ?</td></tr><tr><td>젓가락</td><td>चपस्टिक</td></tr><tr><td>죄송합니다</td><td>माफ गर्नुहोस</td></tr><tr><td>주말</td><td>सप्तांन्त</td></tr><tr><td>지우개</td><td>इरेजर</td></tr><tr><td>질문</td><td>प्रश्न</td></tr><tr><td>짜요</td><td>चर्को छ</td></tr><tr><td>찌개</td><td>सुप</td></tr><tr><td>차요</td><td>भर्छ</td></tr><tr><td>창문</td><td>झ्याल</td></tr><tr><td>책</td><td>किताब</td></tr><tr><td>책상</td><td>टेबल / डेस्क</td></tr><tr><td>축하합니다</td><td>बधाई छ</td></tr><tr><td>치마</td><td>स्कट / फ्रक</td></tr><tr><td>칠판</td><td>कालो पाटी / सेतो पाटी</td></tr><tr><td>커요</td><td>ठुलो छ</td></tr><tr><td>코</td><td>नाक</td></tr><tr><td>타요</td><td>चढछ</td></tr><tr><td>타조</td><td>अस्ट्रिच</td></tr><tr><td>펴세요</td><td>पल्टाउनुहोस्</td></tr><tr><td>편지</td><td>चिठ्ठी</td></tr><tr><td>포도</td><td>अंगुर</td></tr><tr><td>필통</td><td>पेन्सिल बक्स</td></tr><tr><td>하다</td><td>गर्नु</td></tr><tr><td>학생</td><td>बिधार्थी</td></tr><tr><td>한국어</td><td>कोरियन भाषा</td></tr><tr><td>한글</td><td>कोरियन वर्णमाला</td></tr><tr><td>할아버지</td><td>हजुरबुबा</td></tr><tr><td>허리</td><td>कम्मर</td></tr><tr><td>호수</td><td>ताल</td></tr>
+</table>
+
+<table id="ch6" style="display: none;">
+<tr><td>Unit-6 저는 투안입니다 </td><td> मेरो नाम Tuan हो। </td></tr><tr><td>가장</td><td>धेरैजसो</td></tr><tr><td>간호사</td><td>नर्स</td></tr><tr><td>경찰관</td><td>प्रहरी अधिकृत</td></tr><tr><td>고르다</td><td>छान्नुहोस्</td></tr><tr><td>국적</td><td>राष्ट्रियता</td></tr><tr><td>그림</td><td>चित्र</td></tr><tr><td>기술자</td><td>प्राविधिक</td></tr><tr><td>나라</td><td>देश</td></tr><tr><td>나이</td><td>उमेर</td></tr><tr><td>농부</td><td>किसान</td></tr><tr><td>높다</td><td>उच्च</td></tr><tr><td>대답</td><td>जवाफ</td></tr><tr><td>대해</td><td>बारेमा</td></tr><tr><td>대화</td><td>कुराकानी</td></tr><tr><td>듣기</td><td>सुन्दै</td></tr><tr><td>듣다</td><td>सुन्नुहोस्</td></tr><tr><td>들어가다</td><td>भित्र जानुहोस्</td></tr><tr><td>만나다</td><td>भेट्नु</td></tr><tr><td>많다</td><td>धेरै</td></tr><tr><td>말</td><td>शब्द / घोडा</td></tr><tr><td>맞다</td><td>सही</td></tr><tr><td>명사</td><td>संज्ञा</td></tr><tr><td>목수</td><td>सिकर्मी</td></tr><tr><td>문법</td><td>व्याकरण</td></tr>
+</table>
+
+
+ <script>
+const buttons = document.querySelectorAll('button[id^="bch"]');
+const tables = document.querySelectorAll('table[id^="ch"]');
+buttons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    // Hide all tables first
+    tables.forEach(table => {
+      table.style.display = 'none'; });
+tables[index].style.display = 'flex';
+  buttons[index].style.background = 'grey';
+ document.getElementById('chapters').style.display = 'none';
+ document.getElementById('back').style.display = 'flex';
+ document.getElementById('hide').style.display = 'flex';
+});});  
+function Back() {location.reload();}
+</script></body>
+</html>
