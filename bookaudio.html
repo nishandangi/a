@@ -14,7 +14,7 @@ style=" text-align:center;width: 100px;height: 30px;border-radius: 30px;backgrou
 
 <script>let currentAudio = null;function play() {
 const trackNumber = document.getElementById('ch').value;
-const audioSource = `listenings/Track%20(${trackNumber}).mp3`;
+const audioSource = `https://nishandangi.github.io/a/Listenings/Track%20(${trackNumber}).mp3`;
 if (currentAudio) {currentAudio.pause(); }currentAudio = new Audio(audioSource);currentAudio.play();}
 function handleKeyPress(event) {if (event.key === 'Enter') {play();}}</script>
 
