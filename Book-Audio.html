@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening</title>
+	
+</head>
+<body>
+
+
+<input id="ch" type="number" placeholder="Track#"onkeydown="handleKeyPress(event)" autofocus oninput="play();" 
+style=" text-align:center;width: 100px;height: 30px;border-radius: 30px;background:#0f0;position:fixed;left:5px;top:5px;">
+
+<script>let currentAudio = null;function play() {
+const trackNumber = document.getElementById('ch').value;
+const audioSource = `listenings/Track (${trackNumber}).mp3`;
+if (currentAudio) {currentAudio.pause(); }currentAudio = new Audio(audioSource);currentAudio.play();}
+function handleKeyPress(event) {if (event.key === 'Enter') {play();}}</script>
+
+
+</body>
+</html>
