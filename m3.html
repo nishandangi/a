@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>비교 단어</title>
+<style>
+body {font-family: Arial, sans-serif;margin: 0; padding: 2px; background-color: #f4f4f4; }		
+.similar { width: 100%; max-width: 1000px; margin: auto; border-collapse: collapse; background-color: #ffffff;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } .similar th, .similar td { border: 1px solid #dddddd; padding: 10px; } 
+ .similar th { background-color: #123912; font-weight: bold; color: #ffffff;border: 5px solid #dddddd; cursor: pointer; border-radius: 10px; }
+ .similar td:first-child { width: 60%; text-align: right; } .similar td:last-child { width: 40%; text-align: left; } 
+ .similar th[colspan="2"] { text-align: center; } .hidden { display: none; } @media screen and (max-width: 600px) { .similar th, .similar td { padding: 10px; } .similar td:first-child { width: 60%; text-align: right; } .similar td:last-child { width: 40%; text-align: left; } .diff th, .diff td { padding: 10px; } .diff th { 
+ } .diff td { font-size: 12px; }}	
+
+.diff {display:none; width: 100%; max-width: 1000px; margin: auto; border-collapse: collapse; background-color: #ffffff;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } .diff th, .diff td { border: 1px solid #dddddd; padding: 10px; text-align: center; }
+ .diff th { background-color: #391212; font-weight: bold; cursor: pointer; color: #ffffff; border: 5px solid #dddddd;border-radius: 10px; padding: 10px;} 
+ .diff td { background-color: #f9f9f9; } .diff td:nth-child(odd) { background-color: #e6f2e6; } 
+	
+ </style></head><body>
+ 
+
+
+
+<table class="similar">
+<tr><th colspan="2" onclick="swipe()">비슷한말</th></tr>
+
+<tr><th colspan="2" onclick="ns('s6')">6 과</th></tr>
+<tbody id="s6" class="hidden">
+<tr> <td>안내  =  정보  =  </td> <td>जानकारी</td></tr><tr> <td>나라  =  국가  =  </td> <td>राष्ट/देश</td></tr><tr> <td>만나다  =  뵙다.  =  </td> <td>भेटनु</td></tr><tr> <td>직원  =  사원  =  </td> <td>कर्मचारी</td></tr><tr> <td>교사  =  스승  =  </td> <td>शिक्षक / प्रोफेसर</td></tr><tr> <td>요리사  =  조리사  =  </td> <td>भान्से</td></tr><tr> <td>대답  =  답/답변  =  </td> <td>उत्तर</td></tr><tr> <td>연세  =  나이  =  연령</td> <td>उमेर</td></tr><tr> <td>직업  =  직위  =  직책</td> <td>पद</td></tr><tr> <td>상사  =  선배  =  </td> <td>सनियर</td></tr><tr> <td>후배  =  부하  =  </td> <td>जुनियर</td></tr><tr> <td>보내다  =  지내다  =  </td> <td>समय बिताउनु</td></tr><tr> <td>어느  =  무슨  =  </td> <td>कुन.</td></tr>
+</tbody>
+
+<tr><th colspan="2" onclick="ns('s7')">7 과</th> </tr>
+<tbody id="s7" class="hidden">
+<tr> <td>물건  =  상품  =  영품</td> <td>सामान</td></tr><tr> <td>집  =  댁   =  </td> <td>निवाश</td></tr><tr> <td>통로  =  도로   =  </td> <td>बाटो</td></tr><tr> <td>학숙  =  기숙사  =  </td> <td>होस्टेल</td></tr><tr> <td>식사  =  끼   =  </td> <td>खाना</td></tr><tr> <td>보내다   =  부치다   =  </td> <td> पठाउनु</td></tr><tr> <td>적금  =  입금   =  </td> <td>बचत</td></tr><tr> <td>식구  =  가족/가구   =  </td> <td>परिवार</td></tr><tr> <td>넣다  =  담다  =  </td> <td>भित्र राख्नु</td></tr><tr> <td>놓다  =  두다   =  </td> <td>उचालेर राख्नु</td></tr><tr> <td>월급  =  급여  =  봉급 </td> <td> तलब</td></tr><tr> <td>받다  =  얻다   =  </td> <td>प्राप्त गर्नु</td></tr>
+</tbody>
+
+
+ <tr><th colspan="2" onclick="ns('s8')">8 과</th> </tr>
+ <tbody id="s8" class="hidden">
+ <tr> <td>보통  =  자주  =  </td> <td>प्राय </td></tr><tr> <td>먹다  =  드시다  =  잡수시다</td> <td>खानु </td></tr><tr> <td>밥을하다  =  밥을 짓다  =  </td> <td>खाना बनाउनु</td></tr><tr> <td>세수하다  =  씻다  =  </td> <td>मुख धुनु</td></tr><tr> <td>빠르다  =  이르다  =  </td> <td>छिटो हुनु</td></tr><tr> <td>작업을하다  =  취직하다  =  </td> <td>काम गर्नु</td></tr><tr> <td>쉬다  =  휴식하다  =  </td> <td>आराम गर्नु</td></tr><tr> <td>자다  =  주무시다  =  </td> <td>सुत्नु </td></tr><tr> <td>힘들다  =  어렵다  =  </td> <td>ग्राहो हुनु</td></tr><tr> <td>고치다  =  수리하다  =  보수하다</td> <td>मर्मत गर्नु</td></tr><tr> <td>지키다  =  준수하다  =  </td> <td>पालना गर्नु</td></tr><tr> <td>일과  =  일정  =  </td> <td>कार्यतालिका </td></tr>
+ </tbody>
+	
+<tr><th colspan="2" onclick="ns('s9')">9 과</th> </tr>
+<tbody id="s9" class="hidden">
+ 
+</tbody>
+
+
+
+</table>
+
+
+
+
+
+
+<table class="diff">
+<tr><th colspan="4" onclick="swipe()">반대한말</th></tr>
+<tr><th colspan="4" onclick="ns('s1.6')">6 과  </th></tr>
+<tbody id="s1.6" class="hidden">
+<tr> <td>입니다</td> <td>हो</td><td>아닙니다</td><td>होइन</td></tr><tr> <td>환영</td> <td>स्वागत गर्नु</td><td>환송</td><td>बिदाई गर्नु</td></tr><tr> <td>많다</td> <td>धेरै हुनु</td><td>적다</td><td>कम हुनु</td></tr><tr> <td>높다</td> <td> अग्लो हुनु</td><td>낫다</td><td>(होचोहुनु)</td></tr><tr> <td>크다</td> <td>ठुलो हुनु</td><td>작다</td><td>सानो हुनु</td></tr><tr> <td>만나다</td> <td>भेट्नु</td><td>헤어지다</td><td>छुट्टीनु</td></tr><tr> <td>알다</td> <td>थाहा हुनु</td><td>모르다</td><td>थाहा नहुनु</td></tr><tr> <td>어린</td> <td>बालक</td><td>어른</td><td>वृद्ध</td></tr><tr> <td>어리다</td> <td>केटाकेटी</td><td>늙다</td><td>ठुलाबढा हुनु</td></tr>
+</tbody>
+
+<tr><th colspan="4" onclick="ns('s1.7')">7 과</th></tr>
+<tbody id="s1.7" class="hidden">
+<tr> <td>이여요/여요</td> <td>हो</td><td>아니예요</td><td>होइन</td></tr><tr> <td>네</td> <td>हो</td><td>아니요</td><td>होइन</td></tr><tr> <td>벗다</td> <td>खोल्नु</td><td>신다/입다</td><td>लगाउनु</td></tr><tr> <td>들어가다</td> <td>भित्र जानु</td><td>나가다</td><td>बाहिर जानु</td></tr><tr> <td>있다</td> <td>हुनु</td><td>없다</td><td>नहुनु</td></tr><tr> <td>받다</td> <td>पाउनु</td><td>주다</td><td>दिनु</td></tr><tr> <td>열쇠</td> <td>चाबि</td><td>(자)물쇠</td><td>ताला</td></tr>
+</tbody>
+
+<tr><th colspan="4" onclick="ns('s1.8')">8 과</th></tr>
+<tbody id="s1.8" class="hidden">
+<tr> <td>출근</td> <td>काममा जानु</td><td>퇴근</td><td>कामबाट फर्किनु</td></tr><tr> <td>회사에가다</td> <td>कम्पनिमा जानु</td><td>회사에오다</td><td>कम्पनिमा आउनु</td></tr><tr> <td>지키다</td> <td>पालना गर्नु</td><td>어기다</td><td>पालना नगर्नु</td></tr><tr> <td>전</td> <td>अघि </td><td>후</td><td>पछि </td></tr><tr> <td>출발하다</td> <td>प्रस्थान गर्नु</td><td>도착하다</td><td>आईपुग्नु </td></tr><tr> <td>시작하다</td> <td>सुरु गर्नु</td><td>끝나다</td><td>सकिनु </td></tr><tr> <td>늦다</td> <td>ढिला हुनु</td><td>빠르다</td><td>छिटो हुनु</td></tr><tr> <td>일어나다</td> <td>उठ्नु </td><td>숙면하다</td><td>सुलु </td></tr><tr> <td>아침</td> <td>बिहान </td><td>저녁</td><td>साँझ </td></tr><tr> <td>낮</td> <td>दिन </td><td>밤</td><td>रात </td></tr><tr> <td>오전</td> <td>AM </td><td>오후</td><td>PM </td></tr><tr> <td>자정</td> <td>मध्य रात</td><td>정오</td><td>मध्य दिन</td></tr>
+</tbody>
+
+<tr><th colspan="4" onclick="ns('s1.7')">9 과</th></tr>
+<tbody id="s1.9" class="hidden">
+
+</tbody>
+
+
+</table>
+
+
+
+<script>
+function ns(sId) { var section = document.getElementById(sId);
+if (section.classList.contains('hidden')) {
+section.classList.remove('hidden');} else { section.classList.add('hidden'); }}
+
+
+
+    function swipe() {
+        var similarTable = document.querySelector('.similar');
+        var diffTable = document.querySelector('.diff');
+        
+        if (similarTable && diffTable) {
+            if (similarTable.style.display === "none") {
+                similarTable.style.display = "table";
+                diffTable.style.display = "none";
+            } else {
+                similarTable.style.display = "none";
+                diffTable.style.display = "table";
+            }
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
