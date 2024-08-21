@@ -424,6 +424,15 @@ document.getElementById('zoom-slider').addEventListener('input', function() {
 });
 
 
-</script><script src="/news.js"></script>
+</script>  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (screen.orientation && screen.orientation.lock) {
+                screen.orientation.lock('landscape').catch(function(error) {
+                    console.warn('Orientation lock failed:', error);
+                });
+            }
+        });
+    </script>
+ <script src="/news.js"></script>
 </body>
 </html>
