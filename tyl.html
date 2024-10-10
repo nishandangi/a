@@ -10,11 +10,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 90vh;
             margin: 0;
             background-color: #f0f8ff;
         }
-        .container {width:80%;
+        .container {
+            width: 70%;
             text-align: center;
             background-color: #ffffff;
             border-radius: 8px;
@@ -42,7 +43,7 @@
             font-weight: bold;
             color: red;
             animation: blink 0.5s step-start 4;
-			font-size: 58px;
+            font-size: 58px;
         }
         @keyframes blink {
             50% { opacity: 0; }
@@ -63,21 +64,27 @@
             const luckResultElement = document.getElementById("luckResult");
 
             if (!hasCheckedLuck) {
-                const luckResults = [
-                    "Very Lucky today",
-                    "Lucky today",
-                    "Unlucky today",
-                    "You are the world's unluckiest today"
-                ];
-                const randomIndex = Math.floor(Math.random() * luckResults.length);
-                luckResultElement.innerText = luckResults[randomIndex];
+                const randomNumber = Math.floor(Math.random() * 1000) + 1;
+
+                let result;
+                if (randomNumber >= 1 && randomNumber <= 250) {
+                    result = "Very Lucky";
+                } else if (randomNumber >= 251 && randomNumber <= 500) {
+                    result = "Lucky";
+                } else if (randomNumber >= 501 && randomNumber <= 750) {
+                    result = "Unlucky";
+                } else {
+                    result = "Very Unlucky";
+                }
+
+                luckResultElement.innerText = `You are ${result} today: ${randomNumber}`;
                 hasCheckedLuck = true;
             } else {
-                // Make the text bold, red, and blink twice
+                // If already checked, apply blinking effect
                 luckResultElement.classList.add("highlight");
                 setTimeout(() => {
                     luckResultElement.classList.remove("highlight");
-                }, 2000); // Remove the class after the animation ends
+                }, 2000);
             }
         }
     </script>
