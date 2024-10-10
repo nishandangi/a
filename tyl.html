@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Luck</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+        }
+        .container {width:80%;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .highlight {
+            font-weight: bold;
+            color: red;
+            animation: blink 0.5s step-start 4;
+			font-size: 58px;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test Your Luck</h1>
+        <button onclick="checkLuck()">Check</button>
+        <p class="result" id="luckResult"></p>
+    </div>
+
+    <script>
+        let hasCheckedLuck = false;
+
+        function checkLuck() {
+            const luckResultElement = document.getElementById("luckResult");
+
+            if (!hasCheckedLuck) {
+                const luckResults = [
+                    "Very Lucky today",
+                    "Lucky today",
+                    "Unlucky today",
+                    "You are the world's unluckiest today"
+                ];
+                const randomIndex = Math.floor(Math.random() * luckResults.length);
+                luckResultElement.innerText = luckResults[randomIndex];
+                hasCheckedLuck = true;
+            } else {
+                // Make the text bold, red, and blink twice
+                luckResultElement.classList.add("highlight");
+                setTimeout(() => {
+                    luckResultElement.classList.remove("highlight");
+                }, 2000); // Remove the class after the animation ends
+            }
+        }
+    </script>
+</body>
+</html>
