@@ -36,8 +36,8 @@
         }
         .result {
             margin-top: 20px;
-            font-size: 18px;
-            color: #333;
+            font-size: 38px;
+            color: #333;font-weight: bold;
         }
         .highlight {
             font-weight: bold;
@@ -77,7 +77,7 @@
                     result = "Very Unlucky";
                 }
 
-                luckResultElement.innerText = `You are ${result} today: ${randomNumber}`;
+                luckResultElement.innerText = ` ${result} today: ${randomNumber}`;
                 hasCheckedLuck = true;
             } else {
                 // If already checked, apply blinking effect
