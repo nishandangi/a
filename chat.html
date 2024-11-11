@@ -191,7 +191,12 @@
   </div>
 <script src="chat.js"></script>
   <script>
-
+//request notification permisson
+document.addEventListener("DOMContentLoaded", () => {
+  if (Notification.permission === "default") {
+    Notification.requestPermission();
+  }
+});
 
 // Logout Button Event
 document.getElementById("logoutButton").addEventListener("click", () => {
@@ -291,6 +296,8 @@ async function validateUser(username, password) {
 
 
 
+let lastMessageId = null; // Track the last message to detect new messages
+
 // Function to load messages (if applicable)
 async function loadMessages() {
   const API_URL = 'https://script.google.com/macros/s/AKfycbxnjJn8OursihvYZNl4ljKu75Zr8edu93pKcfwNtz2J0BAk35JSrfz8hmLoa0fNEMhBVA/exec'; // Replace with your actual API URL
@@ -300,11 +307,36 @@ async function loadMessages() {
     const chatContainer = document.getElementById('chatContainer');
     chatContainer.innerHTML = ''; // Clear previous messages
     messages.forEach(displayMessage);
-	      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    // Detect if there is a new message
+    if (messages.length > 0) {
+      const latestMessage = messages[messages.length - 1];
+      if (lastMessageId !== latestMessage.id) {
+        lastMessageId = latestMessage.id; // Update last message ID
+        showNotification(latestMessage.username, latestMessage.text);
+      }
+    }
+
+  chatContainer.scrollTop = chatContainer.scrollHeight;
 
   } catch (error) {
     console.error('Error fetching messages:', error);
     document.getElementById('chatContainer').innerHTML = 'Failed to load messages.';
+  }
+}
+
+// Function to show a notification
+function showNotification(username, text) {
+  if (Notification.permission === "granted") {
+    const notification = new Notification("New Message", {
+      body: `${username}: ${text}`,
+      icon: `https://nishandangi.github.io/a/${username}.jpg` // Profile image if available
+    });
+
+    // Optional: focus on the window if the user clicks the notification
+    notification.onclick = () => {
+      window.focus();
+    };
   }
 }
 
