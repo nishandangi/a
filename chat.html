@@ -384,7 +384,7 @@ async function saveMessage({ username, text }) {
 document.getElementById('sendMessageButton').addEventListener('click', sendMessage);
 
 // Load messages every 5 seconds
-setInterval(loadMessages, 5000);
+setInterval(loadMessages, 100);
 
 // Initial load of messages
 loadMessages();
