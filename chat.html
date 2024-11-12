@@ -367,7 +367,10 @@ function displayMessage({ username, text }) {
 
 
 
-
+    function play() {
+      const Sound = new Audio('https://nishandangi.github.io/a/confirmation.wav'); 
+      Sound.play();
+    }
 
 
 // Send a message
@@ -379,8 +382,7 @@ async function sendMessage() {
   if (!usernameInput || !messageInput || !sendButton) {
     console.error("Input elements or send button not found!");
     return; // Exit if elements are not found
-  }
-
+  }play();
   const username = usernameInput.value.trim();
   const text = messageInput.value.trim();
 
@@ -430,9 +432,13 @@ async function saveMessage({ username, text }) {
   }
 }
 
-
+// Listen for send message button click
 document.getElementById('sendMessageButton').addEventListener('click', sendMessage);
-setInterval(loadMessages, 2000);
+
+
+setInterval(loadMessages, 1000);
+
+// Initial load of messages
 loadMessages();
 
 
