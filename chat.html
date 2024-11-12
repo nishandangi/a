@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,12 +19,12 @@
       padding: 0;
     }
     #chatContainer {
-      width: 93vw;
-      height: 80vh;
+      width: 100vw;
+      height: 90vh;
       overflow-y: auto;
       margin-bottom: 10px;
-      padding: 10px;
-      background-color: #e0e0e0;
+      padding: 0px;
+      background-color: #005500;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
     .chat-box {
@@ -42,29 +43,30 @@
     }
     .input-section {
       display: flex;
+	  height:7vh;
       align-items: center;
-      width: 95%;
-      margin: 10px;
+      width: 100%;
+      left:0;
       position: fixed;
       bottom: 5px;
-      background-color: #fff;
-      padding: 10px;
+      background-color: #003500;
+      padding: 10px 30px 5px 5px;
       box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
     }
     #usernameInput, #messageInput {
       padding: 10px;
       font-size: 16px;
-      border-radius: 5px;
+      border-radius: 12px;
       border: 1px solid #ccc;
     }
     #sendMessageButton {
-      padding: 10px;
+      padding: 15px 10px;
       font-size: 16px;
       cursor: pointer;
       border-radius: 5px;
       border: none;width:60px;
       color: white;
-      background-color: #007BFF;
+      background-color: #006200;
       margin-right: 10px;
     }
     #messageInput {
@@ -150,7 +152,7 @@
   cursor: pointer;
   font-size: 16px;
 }
-#menu { visibility:hidden;
+#menu{ visibility:hidden;
       background-color: #fff;
       padding: 30px;
       border-radius: 8px;
@@ -162,6 +164,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+	#offline{ visibility:hidden;text-align: center;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);}
   </style>
 </head>
 <body>
@@ -171,32 +174,44 @@
     <input id="password" placeholder="Enter your Password" type="password">
     <button id="in">Log In</button>
   </div>
+<div id="offline"><h1>Ohw🙄; You are Offline!!</h1><p>When you got online, Page reloads automatically</p></div>
 
-  <div id="mainBody" style="visibility: hidden;">
- <div id="menu"> 
- 
- 
-    <button id="logoutButton">Logout</button>
-</div>	
-    <div id="chatContainer">
+<div id="mainBody" style="visibility: hidden;">
+
+<div id="menu"> <button id="logoutButton">Logout</button></div>
+	
+<div id="chatContainer">
       <h2 style="text-align: center;">Loading...</h2>
-    </div>
+</div>
 
-    <div class="input-section">
+ <div class="input-section">
       <img id="profileImage" src="" alt="Profile Image" onclick="menu();">
       <div id="usernameInput" placeholder="Name" value="not" style="display:none;"></div>
       <textarea id="messageInput" placeholder="Message"></textarea>
       <button id="sendMessageButton">Send</button>
     </div>
   </div>
-<script src="chat.js"></script>
+
   <script>
-//request notification permisson
-document.addEventListener("DOMContentLoaded", () => {
-  if (Notification.permission === "default") {
-    Notification.requestPermission();
-  }
-});
+  
+  
+  
+  
+  
+  
+  //ensure latest
+window.onload = function() {
+  const chatContainer = document.getElementById("chatContainer");
+  chatContainer.scrollTop = chatContainer.scrollHeight;};
+
+//offline distraction blocked
+let lastOnlineStatus = navigator.onLine; function checkOnlineStatus() { const mainBody = document.getElementById("mainBody"), offlineIndicator = document.getElementById("offline"), currentStatus = navigator.onLine; if (currentStatus !== lastOnlineStatus) { mainBody.style.visibility = currentStatus ? "visible" : "hidden"; offlineIndicator.style.visibility = currentStatus ? "hidden" : "visible"; if (currentStatus) loadMessages(); } lastOnlineStatus = currentStatus; } const mainBody = document.getElementById("mainBody"), offlineIndicator = document.getElementById("offline"); mainBody.style.visibility = navigator.onLine ? "visible" : "hidden"; offlineIndicator.style.visibility = navigator.onLine ? "hidden" : "visible"; if (navigator.onLine) loadMessages(); setInterval(checkOnlineStatus, 1000);
+
+
+
+
+  
+
 
 // Logout Button Event
 document.getElementById("logoutButton").addEventListener("click", () => {
@@ -250,6 +265,7 @@ function autoLogin(username) {
   loadMessages();
 }
 
+
 // Function to set the profile image URL based on the username
 function updateProfileImage(username) {
   const profileImage = document.getElementById("profileImage");
@@ -294,49 +310,34 @@ async function validateUser(username, password) {
 
 
 
-
-
-let lastMessageId = null; // Track the last message to detect new messages
-
-// Function to load messages (if applicable)
+// Function to load messages, either from local storage or from the server
 async function loadMessages() {
-  const API_URL = 'https://script.google.com/macros/s/AKfycbxnjJn8OursihvYZNl4ljKu75Zr8edu93pKcfwNtz2J0BAk35JSrfz8hmLoa0fNEMhBVA/exec'; // Replace with your actual API URL
+  const chatContainer = document.getElementById('chatContainer');
+  chatContainer.innerHTML = ''; // Clear previous messages
+
+  // Load messages from local storage
+  const storedMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+  if (storedMessages.length > 0) {
+    storedMessages.forEach(displayMessage); // Display stored messages
+  }
+
+  // Fetch the latest messages from the server
   try {
-    const response = await fetch(API_URL);
+    const response = await fetch('https://script.google.com/macros/s/AKfycbxnjJn8OursihvYZNl4ljKu75Zr8edu93pKcfwNtz2J0BAk35JSrfz8hmLoa0fNEMhBVA/exec');
     const messages = await response.json();
-    const chatContainer = document.getElementById('chatContainer');
-    chatContainer.innerHTML = ''; // Clear previous messages
-    messages.forEach(displayMessage);
 
-    // Detect if there is a new message
-    if (messages.length > 0) {
-      const latestMessage = messages[messages.length - 1];
-      if (lastMessageId !== latestMessage.id) {
-        lastMessageId = latestMessage.id; // Update last message ID
-        showNotification(latestMessage.username, latestMessage.text);
-      }
-    }
-
-  chatContainer.scrollTop = chatContainer.scrollHeight;
-
+    // Compare server messages with local messages
+    if (JSON.stringify(messages) !== JSON.stringify(storedMessages)) {
+      // Update local storage with the new messages from the server
+      localStorage.setItem('chatMessages', JSON.stringify(messages));
+      
+      // Clear and display the latest messages from the server
+      chatContainer.innerHTML = '';
+      messages.forEach(displayMessage);
+    }chatContainer.scrollTop = chatContainer.scrollHeight;
   } catch (error) {
     console.error('Error fetching messages:', error);
-    document.getElementById('chatContainer').innerHTML = 'Failed to load messages.';
-  }
-}
-
-// Function to show a notification
-function showNotification(username, text) {
-  if (Notification.permission === "granted") {
-    const notification = new Notification("New Message", {
-      body: `${username}: ${text}`,
-      icon: `https://nishandangi.github.io/a/${username}.jpg` // Profile image if available
-    });
-
-    // Optional: focus on the window if the user clicks the notification
-    notification.onclick = () => {
-      window.focus();
-    };
+    chatContainer.innerHTML = 'Failed to load messages.';
   }
 }
 
@@ -350,7 +351,7 @@ function displayMessage({ username, text }) {
   profileImage.src = `https://nishandangi.github.io/a/${username}.jpg`; 
   profileImage.alt = `${username}'s profile picture`;
   profileImage.className = 'profile-image';
-  profileImage.style.width = '40px'; // Example size
+  profileImage.style.width = '40px';
   profileImage.style.height = '40px';
   profileImage.style.borderRadius = '50%';
   messageDiv.appendChild(profileImage);
@@ -363,32 +364,49 @@ function displayMessage({ username, text }) {
   document.getElementById('chatContainer').appendChild(messageDiv);
 }
 
+
+
+
+
+
+
 // Send a message
 async function sendMessage() {
   const usernameInput = document.getElementById('usernameInput');
   const messageInput = document.getElementById('messageInput');
-  
-  if (!usernameInput || !messageInput) {
-    console.error("Input elements not found!");
+  const sendButton = document.getElementById('sendMessageButton'); // Assuming the send button has this ID
+
+  if (!usernameInput || !messageInput || !sendButton) {
+    console.error("Input elements or send button not found!");
     return; // Exit if elements are not found
   }
 
   const username = usernameInput.value.trim();
   const text = messageInput.value.trim();
 
-  if (username && text) {
-    // Display the message on the page
-    displayMessage({ username, text });
+  // Exit if either username or text is empty
+  if (!username || !text) return;
 
-    // Save the message by sending to the Google Apps Script
+  messageInput.value = '';
+  sendButton.disabled = true;
+  // Display the message on the page immediately
+  displayMessage({ username, text });
+ // Attempt to save the message
+  try {
     await saveMessage({ username, text });
-
-    // Clear the message input after sending
-    messageInput.value = '';
-  } else {
-    alert("Please enter both a username and a message.");
+  } catch (error) {
+    console.error("Error saving message:", error);
   }
+  // Re-enable the send button after saving the message
+  sendButton.disabled = false;
 }
+
+ messageInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    });
+	
 
 // Save the message
 async function saveMessage({ username, text }) {
@@ -412,13 +430,9 @@ async function saveMessage({ username, text }) {
   }
 }
 
-// Listen for send message button click
+
 document.getElementById('sendMessageButton').addEventListener('click', sendMessage);
-
-// Load messages every 5 seconds
-setInterval(loadMessages, 1000);
-
-// Initial load of messages
+setInterval(loadMessages, 2000);
 loadMessages();
 
 
