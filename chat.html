@@ -1,15 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Chat</title>
- <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: 'Quicksand', sans-serif; 
-      font-size: 20px; 
+font-family: 'Merriweather', serif;
+      font-size: 16px; 
       font-weight: bold;  
       display: flex;
       flex-direction: column;
@@ -20,22 +20,23 @@
     }
     #chatContainer {
       width: 100vw;
-      height: 84vh;
+      height: 90vh;
       overflow-y: auto;
       margin-bottom: 10px;
       padding: 0px;
-      background-color: #005500;
+      background-color: #003500;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
     .chat-box {
-      background-color: #d3d3d3;
-      padding: 10px;
-      margin: 5px 0;
-      border-radius: 8px;
-      color: #333;
+      background-color: #666;
+      margin:  5px  ;
+      border-radius: 15px;
+      color: #000;
       text-align: left;
       display: flex;
       align-items: center;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .username {
       font-weight: bold;
@@ -49,7 +50,7 @@
       left:0;
       position: fixed;
       bottom: 5px;
-      background-color: #003500;
+      background-color: #002500;
       padding: 10px 30px 5px 5px;
       box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
     }
@@ -81,15 +82,7 @@
       height: 40px;
       border-radius: 20px;cursor:pointer;
     }
-    .chat-box {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      margin: 5px;
-      background-color: #f5f5f5;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+   
     .profile-image {
       width: 40px;
       height: 40px;
@@ -157,7 +150,7 @@
       padding: 30px;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      width: 300px; height:100px;
+      width: 300px;
       text-align: center;
       position: fixed;
       top: 50%;
@@ -178,14 +171,19 @@
 
 <div id="mainBody" style="visibility: hidden;">
 
-<div id="menu"> <button id="logoutButton">Logout</button></div>
+<div id="menu"> 
+<button onclick="Delete();">Delete</button>
+<button id="logoutButton">Logout</button>
+<button  onclick="document.getElementById('menu').style.visibility = 'hidden';
+">Cancel</button>
+</div>
 	
 <div id="chatContainer">
       <h2 style="text-align: center;">Loading...</h2>
 </div>
 
  <div class="input-section">
-      <img id="profileImage" src="" alt="Profile Image" onclick="menu();">
+      <img id="profileImage" src=""  onclick="menu();">
       <div id="usernameInput" placeholder="Name" value="not" style="display:none;"></div>
       <textarea id="messageInput" placeholder="Message"></textarea>
       <button id="sendMessageButton">Send</button>
@@ -193,12 +191,14 @@
   </div>
 
   <script>
-  
-  
-  
-  
-  
-  
+//delete button jugad(handled from server)
+function Delete() {
+document.getElementById('messageInput').value = 'Delete Request Sent';
+document.getElementById('menu').style.visibility = 'hidden';
+sendMessage();
+}
+
+
   //ensure latest
 window.onload = function() {
   const chatContainer = document.getElementById("chatContainer");
@@ -337,7 +337,7 @@ async function loadMessages() {
     }chatContainer.scrollTop = chatContainer.scrollHeight;
   } catch (error) {
     console.error('Error fetching messages:', error);
-    chatContainer.innerHTML = 'Failed to load messages.';
+    chatContainer.innerHTML = 'Issue Fixing...';
   }
 }
 
