@@ -14,7 +14,7 @@ font-family: 'Merriweather', serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color:#002500;
+      background-color:#003500;
       margin: 0;
       padding: 0;
     }
@@ -170,7 +170,7 @@ font-family: 'Merriweather', serif;
 <div id="offline"><h1>Ohw🙄; You are Offline!!</h1><p>When you got online, Page reloads automatically</p></div>
 
 <div id="mainBody" style="visibility: hidden;">
-
+<div id="countdownTimer" style="position: fixed; top: 10px; right: 10px; font-size: 16px; font-weight: bold; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 5px 10px; border-radius: 5px; display: none;"></div>
 <div id="menu"> 
 <button onclick="Delete();">Delete</button>
 <button id="logoutButton">Logout</button>
@@ -196,6 +196,22 @@ function Delete() {
 document.getElementById('messageInput').value = 'Delete Request Sent';
 document.getElementById('menu').style.visibility = 'hidden';
 sendMessage();
+startCountdown(75);
+}
+function startCountdown(seconds) {
+  const countdownElement = document.getElementById('countdownTimer');
+  countdownElement.style.display = 'block'; 
+  let remainingTime = seconds;
+
+  const countdownInterval = setInterval(() => {
+    countdownElement.innerText = `Delete : ${remainingTime} S`; 
+    remainingTime--;
+
+    if (remainingTime < 0) {
+      clearInterval(countdownInterval); 
+      countdownElement.style.display = 'none'; 
+    }
+  }, 1000); 
 }
 
 
@@ -431,22 +447,9 @@ async function saveMessage({ username, text }) {
     console.error("Error saving message:", error);
   }
 }
-
-// Listen for send message button click
 document.getElementById('sendMessageButton').addEventListener('click', sendMessage);
-
-
 setInterval(loadMessages, 1000);
-
-// Initial load of messages
 loadMessages();
-
-
-
-
-
-
-
   </script>
 </body>
 </html>
