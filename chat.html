@@ -10,7 +10,6 @@
     body {
 font-family: 'Merriweather', serif;
       font-size: 16px; 
-      font-weight: bold;  
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -18,24 +17,28 @@ font-family: 'Merriweather', serif;
       margin: 0;
       padding: 0;
     }
-    #chatContainer {
-      width: 100vw;
-      height: 90vh;
-      overflow-y: auto;
-      margin-bottom: 10px;
-      padding: 0px;
-      background-color: #003500;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    }
+   #chatContainer {
+  width: 100vw;
+  height: 90vh;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding: 0px;
+  background-color: #003500;
+  background-image: url('');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
     .chat-box {
-      background-color: #666;
-      margin:  5px  ;
+  background-color: rgba(102, 102, 102, 0.8);      margin:  5px  ;
       border-radius: 15px;
       color: #000;
       text-align: left;
       display: flex;
       align-items: center;
-      padding: 10px;
+      padding: 7px 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .username {
@@ -90,8 +93,7 @@ font-family: 'Merriweather', serif;
       margin-right: 10px;
     }
     .message-text {
-      font-family: 'Dancing Script', cursive;
-      font-size: 20px;
+      font-size: 18px; 
     }
     #login {
       background-color: #fff;
@@ -158,6 +160,9 @@ font-family: 'Merriweather', serif;
       transform: translate(-50%, -50%);
     }
 	#offline{ visibility:hidden;text-align: center;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+
+
+
   </style>
 </head>
 <body>
@@ -326,6 +331,7 @@ async function validateUser(username, password) {
 
 
 
+
 // Function to load messages, either from local storage or from the server
 async function loadMessages() {
   const chatContainer = document.getElementById('chatContainer');
@@ -350,7 +356,8 @@ async function loadMessages() {
       // Clear and display the latest messages from the server
       chatContainer.innerHTML = '';
       messages.forEach(displayMessage);
-    }chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+    chatContainer.scrollTop = chatContainer.scrollHeight;
   } catch (error) {
     console.error('Error fetching messages:', error);
     chatContainer.innerHTML = 'Issue Fixing...';
@@ -358,9 +365,26 @@ async function loadMessages() {
 }
 
 // Display each message in the chat container
-function displayMessage({ username, text }) {
+function displayMessage({ date, username, text }) {
   const messageDiv = document.createElement('div');
   messageDiv.className = 'chat-box';
+
+  // Parse date from Google Sheets and convert to Kathmandu time
+let kathmanduTime;
+const originalDate = new Date(date);
+
+// Check if the parsed date is valid
+if (!isNaN(originalDate.getTime())) {
+  // Format to Kathmandu time if the date is valid
+  kathmanduTime = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Kathmandu',
+   // day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  }).format(originalDate);
+} else {
+  // Fallback text for invalid date
+  kathmanduTime = "Invalid Date";
+}
 
   // Dynamically set profile image URL based on username
   const profileImage = document.createElement('img');
@@ -372,13 +396,28 @@ function displayMessage({ username, text }) {
   profileImage.style.borderRadius = '50%';
   messageDiv.appendChild(profileImage);
 
-  // Create and append message text
-  const messageText = document.createTextNode(text);
+  // Display the message text
+  const messageText = document.createElement('span');
+  messageText.className = 'message-text';
+ 
+
+ messageText.textContent = text;
   messageDiv.appendChild(messageText);
+
+  // Display the Kathmandu time with smaller font and normal weight
+  const timestamp = document.createElement('small');
+  timestamp.className = 'small-timestamp';
+messageText.innerHTML = `${text} <br><small style="font-size: 12px; font-weight: normal;display: inline-block;">${kathmanduTime}</small>`;
+ messageDiv.appendChild(timestamp);
 
   // Append the message to the chat container
   document.getElementById('chatContainer').appendChild(messageDiv);
 }
+
+
+
+
+
 
 
 
@@ -450,6 +489,9 @@ async function saveMessage({ username, text }) {
 document.getElementById('sendMessageButton').addEventListener('click', sendMessage);
 setInterval(loadMessages, 1000);
 loadMessages();
+
+
+
   </script>
 </body>
 </html>
