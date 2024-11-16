@@ -175,7 +175,7 @@ font-family: 'Merriweather', serif;
   </div>
 <div id="offline"><h1>Ohw🙄; You are Offline!!</h1><p>When you got online, Page reloads automatically</p></div>
 
-<div id="mainBody" style="visibility: hidden;">
+<div id="mainBody" style="visibility: hidden; ">
 <div id="countdownTimer" style="position: fixed; top: 10px; right: 10px; font-size: 16px; font-weight: bold; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 5px 10px; border-radius: 5px; display: none;"></div>
 <div id="menu"> 
 
@@ -197,7 +197,7 @@ font-family: 'Merriweather', serif;
       <img id="profileImage" src=""  onclick="menu();">
       <div id="usernameInput" placeholder="Name" value="not" style="display:none;"></div>
       <textarea id="messageInput" placeholder="Message"></textarea>
-      <button id="sendMessageButton">Send</button>
+      <button id="sendMessageButton"style="font-size: 28px;padding:5px;border-radius:10px;">➤</button>
     </div>
   </div>
 
@@ -537,7 +537,7 @@ async function sendMessage() {
   }
   // Re-enable the send button after saving the message
   sendButton.disabled = false;
-	messageInput.focus();
+   messageInput.focus();
 }
 
  messageInput.addEventListener('keydown', (event) => {
