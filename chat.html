@@ -537,6 +537,7 @@ async function sendMessage() {
   }
   // Re-enable the send button after saving the message
   sendButton.disabled = false;
+	messageInput.focus();
 }
 
  messageInput.addEventListener('keydown', (event) => {
