@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calm</title>
+  <style>
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f8b8d4, #6e45e1);
+  font-family: 'Arial', sans-serif;Display:flex;
+  justify-content: center;    /* Center horizontally */
+  align-items: center;        /* Center vertically */
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+.image-container { display: flex; justify-content: center; align-items: center; height: 100vh;Display:none; }
+.image { width: 100%; height: auto; border-radius: 350px; border: 5px solid rgba(0, 0, 0, 0.3); }
+
+.login-container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 70%;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 5px #6a11cb;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6a11cb;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+    background-color: #2575fc;
+}
+
+.login-container button:active {
+    background-color: #0044cc;
+}
+
+  </style>
+</head>
+<body>
+ <div class="login-container">
+<input type="text" id="username" placeholder="Enter username" required>
+<input type="password" id="password" placeholder="Enter password" required>
+<button type="button" id="in">Login</button>
+</div>
+
+
+<div class="image-container">
+<img id="userImage" onclick="playAudio();" class="image">
+<audio id="sn"><source src="https://nishandangi.github.io/a/Ns.mp3" type="audio/mpeg"></audio>
+</div>
+<script>
+const audio = document.getElementById('sn');
+function playAudio() {audio.play(); }
+audio.addEventListener('ended', function() {
+  document.body.style.display = "none";
+ const message = document.createElement("div");
+  message.textContent = "See you again!";
+  message.style.fontSize = "24px";
+  message.style.color = "#ffffff";
+  message.style.textAlign = "center";
+  message.style.marginTop = "20px";
+  document.body.appendChild(message);
+});
+
+
+// Login Button Event
+document.getElementById("in").addEventListener("click", async () => {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  if (username && password) {
+    const response = await validateUser(username, password);
+    
+    if (response.success) {
+      // Store the username in localStorage
+      localStorage.setItem("loggedInUsername", username);
+
+      // Update the image source with username.png
+      const imageElement = document.getElementById("userImage");
+      imageElement.src = `https://nishandangi.github.io/a/${username}.png`;  // Update image src to username.png
+
+      // Hide the login container
+      document.querySelector(".login-container").style.display = "none";
+
+      // Show the image container
+      document.querySelector(".image-container").style.display = "flex";
+    } else {
+      alert(response.message || "Invalid username or password.");
+    }
+  } else {
+    alert("Please enter both username and password.");
+  }
+});
+
+// Function to validate the user
+async function validateUser(username, password) {
+  const url = 'https://script.google.com/macros/s/AKfycbww46sGfGv8UnfFGUMQalRB4E4rB7Du0ap0lA4IEtWv456JTIzBM57Bf-8pEsRQtwll/exec'; 
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+  });
+  const data = await response.json();
+  return data;
+}
+
+
+</script>
+ 
+</body>
+</html>
