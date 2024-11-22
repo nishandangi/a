@@ -90,7 +90,7 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);border-radius:50px;
 }
 
   
@@ -127,7 +127,6 @@
   <div id="sayari"></div>
 
 <script>
-
 let currentImageIndex = 0; // Start with the first image
 const images = [
   document.getElementById("userImage1"),
@@ -152,21 +151,17 @@ function updateImageVisibility() {
 
 // Swipe left to show the next image
 function swipeLeft() {
-  if (currentImageIndex < images.length - 1) {
-    currentImageIndex++;
-    updateImageVisibility();
-  }
+  currentImageIndex = (currentImageIndex + 1) % images.length; // Loop back to first image
+  updateImageVisibility();
 }
 
 // Swipe right to show the previous image
 function swipeRight() {
-  if (currentImageIndex > 0) {
-    currentImageIndex--;
-    updateImageVisibility();
-  }
+  currentImageIndex = (currentImageIndex - 1 + images.length) % images.length; // Loop back to last image
+  updateImageVisibility();
 }
 
-// Add event listeners for swiping
+// Add event listeners for keyboard swiping (PC)
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") {
     swipeLeft(); // Right arrow for next image
@@ -175,7 +170,23 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Initial visibility setup
+// Add event listeners for touch swiping (Mobile)
+let touchStartX = 0; // Store touch start position
+
+document.addEventListener("touchstart", (event) => {
+  touchStartX = event.touches[0].clientX; // Record the starting touch position
+});
+
+document.addEventListener("touchend", (event) => {
+  const touchEndX = event.changedTouches[0].clientX; // Get the end position of the touch
+  const swipeThreshold = 50; // Minimum distance for swipe
+
+  if (touchStartX - touchEndX > swipeThreshold) {
+    swipeLeft(); // Swipe left to next image
+  } else if (touchEndX - touchStartX > swipeThreshold) {
+    swipeRight(); // Swipe right to previous image
+  }
+});
 updateImageVisibility();
 
 
