@@ -1,107 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calm</title>
-  <style>
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calm</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;}
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;width:100wv
+    overflow: hidden;
+    margin: 0;
+    background: linear-gradient(135deg, #f8b8d4, #6e45e1);
+    font-family: 'Arial', sans-serif;
+    color: white;
+  }
 
-/* Body Styling */
-body {
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #f8b8d4, #6e45e1);
-  font-family: 'Arial', sans-serif;Display:flex;
-  justify-content: center;    /* Center horizontally */
-  align-items: center;        /* Center vertically */
-  height: 100vh;
-  overflow: hidden;
-  color: white;
-}
-.image-container { display: flex; justify-content: center; align-items: center; height: 100vh;Display:none; }
-.image { width: 100%; height: auto; border-radius: 350px; border: 5px solid rgba(0, 0, 0, 0.3); }
-
-.login-container {
+  .login-container {
     background: rgba(0, 0, 0, 0.7);
     padding: 30px 20px;
     border-radius: 10px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 70%;
-}
+  }
 
-.login-container input[type="text"],
-.login-container input[type="password"] {
+  .login-container input {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     margin: 10px 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 4px;
+    font-size: 14px;
     outline: none;
-}
+  }
 
-.login-container input[type="text"]:focus,
-.login-container input[type="password"]:focus {
-    border-color: #6a11cb;
-    box-shadow: 0 0 5px #6a11cb;
-}
-
-.login-container button {
-    width: 100%;
+  .login-container button {
+    width: 50%;
     padding: 10px;
-    margin-top: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #6a11cb;
     color: #fff;
-    font-size: 16px;
+    font-size: 14px;
+    margin: 10px 0;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
+  }
 
-.login-container button:hover {
+  .login-container button:hover {
     background-color: #2575fc;
+  }
+
+  #sayari {
+    position: fixed;
+    width: 100%;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    line-height: 1.5;
+    visibility: hidden; 
+    opacity: 0; 
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  }
+
+  #sayari.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  #img {
+  display: none;
+  height: 90vh;
 }
 
-.login-container button:active {
-    background-color: #0044cc;
+.userImage {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-  </style>
+  
+  #userImage1, #userImage2, #userImage3, #userImage4, #userImage5 {
+  visibility: hidden;
+  transition: visibility 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+#userImage1 {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
 </head>
 <body>
- <div class="login-container">
-<input type="text" id="username" placeholder="Enter username" required>
-<input type="password" id="password" placeholder="Enter password" required>
-<button type="button" id="in">Login</button>
-</div>
+  <div class="login-container">
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="button" id="in">Authorize</button>
+  </div>
 
+  <div id="img">
+    <img id="userImage1" onclick="playAudio();" class="userImage" />
+    <img id="userImage2" onclick="playAudio();" class="userImage" />
+    <img id="userImage3" onclick="playAudio();" class="userImage" />
+    <img id="userImage4" onclick="playAudio();" class="userImage" />
+    <img id="userImage5" onclick="playAudio();" class="userImage" />
+  </div>
 
-<div class="image-container">
-<img id="userImage" onclick="playAudio();" class="image">
-<audio id="sn"><source src="https://nishandangi.github.io/a/Ns.mp3" type="audio/mpeg"></audio>
-</div>
+  <audio id="sn">
+    <source id="audioSource" type="audio/mpeg">
+  </audio>
+
+  <div id="sayari"></div>
+
 <script>
-const audio = document.getElementById('sn');
-function playAudio() {audio.play(); }
-audio.addEventListener('ended', function() {
-  document.body.style.display = "none";
- const message = document.createElement("div");
-  message.textContent = "See you again!";
-  message.style.fontSize = "24px";
-  message.style.color = "#ffffff";
-  message.style.textAlign = "center";
-  message.style.marginTop = "20px";
-  document.body.appendChild(message);
+
+let currentImageIndex = 0; // Start with the first image
+const images = [
+  document.getElementById("userImage1"),
+  document.getElementById("userImage2"),
+  document.getElementById("userImage3"),
+  document.getElementById("userImage4"),
+  document.getElementById("userImage5")
+];
+
+// Function to update visibility based on currentImageIndex
+function updateImageVisibility() {
+  images.forEach((image, index) => {
+    if (index === currentImageIndex) {
+      image.style.visibility = "visible";
+      image.style.opacity = "1";
+    } else {
+      image.style.visibility = "hidden";
+      image.style.opacity = "0";
+    }
+  });
+}
+
+// Swipe left to show the next image
+function swipeLeft() {
+  if (currentImageIndex < images.length - 1) {
+    currentImageIndex++;
+    updateImageVisibility();
+  }
+}
+
+// Swipe right to show the previous image
+function swipeRight() {
+  if (currentImageIndex > 0) {
+    currentImageIndex--;
+    updateImageVisibility();
+  }
+}
+
+// Add event listeners for swiping
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    swipeLeft(); // Right arrow for next image
+  } else if (event.key === "ArrowLeft") {
+    swipeRight(); // Left arrow for previous image
+  }
 });
 
+// Initial visibility setup
+updateImageVisibility();
+
+
+
+const shayaris = [ 
+  "अपुरो  बयान गर्ला त्यो ऐनाले तिम्रो सुन्दरता !<br>हेर त मेरा आँखामा, कति अनुपम छौ तिमी !!",
+  "तिमी मलाई  यति भुल्नु कि, तिमी जीउन सकौँ!<br>म तिमीलाई यति सम्झन्छु कि ,म जीउन सकुँ !!",
+  "तिमी मेरी म तिम्रो हुन सकेनौ ऐलेलाई,<br>अहँ! यो प्रेमकयौं जुनि सम्म सकिदैन ।।",
+  "चोट सानो होस् या ठूलो, जस्तोसुकै होस् !<br>तिम्रा यादहरु हरेकका मल्हम बनिदिन्छन् !!",
+  "जो  तिमीसङ्ग  बिते  ती दिनहरु!<br>सायद! त्यतिमात्र मेरो जिन्दगी हुन्थ्यो !!",
+  "मेरो हाल म आफैलाई थाहा हुन्न !<br>मैले अरुबाटै सुनेको कि उदास छु म !!",
+  "अहो! एक सुन्दर भेट!<br>ब्युझिएर पो थाहा पाएँ, यो त सपनी रहेछ ।",
+  
+  
+  "थाहा छ, तिमी मेरी हौ!<br>थाहा छ, यो झुट हो !!"
+];
+
+
+
+const audio = document.getElementById("sn");
+function playAudio() {
+  audio.play();
+}
+audio.addEventListener("ended", function () {
+  document.body.style.display = "none";
+});
 
 // Login Button Event
 document.getElementById("in").addEventListener("click", async () => {
@@ -110,20 +210,46 @@ document.getElementById("in").addEventListener("click", async () => {
 
   if (username && password) {
     const response = await validateUser(username, password);
-    
+
     if (response.success) {
-      // Store the username in localStorage
       localStorage.setItem("loggedInUsername", username);
+      localStorage.setItem("loggedInPassword", password);
 
-      // Update the image source with username.png
-      const imageElement = document.getElementById("userImage");
-      imageElement.src = `https://nishandangi.github.io/a/${username}.png`;  // Update image src to username.png
+      // Base URL for image/audio files
+      const baseURL = "https://nishandangi.github.io/a/";
 
-      // Hide the login container
+    
+document.getElementById("userImage1").src = `${baseURL}${username}_${password}a.png`;
+document.getElementById("userImage2").src = `${baseURL}${username}_${password}b.png`;
+document.getElementById("userImage3").src = `${baseURL}${username}_${password}c.png`;
+document.getElementById("userImage4").src = `${baseURL}${username}_${password}d.png`;
+document.getElementById("userImage5").src = `${baseURL}${username}_${password}e.png`;
+  
+
+      // Update audio source
+      const audioSource = `${baseURL}${username}_${password}.mp3`;
+      console.log(`Loading audio: ${audioSource}`);
+      document.getElementById("audioSource").src = audioSource;
+      document.getElementById("sn").load();
+
+      // Hide login form and show images
       document.querySelector(".login-container").style.display = "none";
+    document.getElementById("img").style.display = "inline"; 
 
-      // Show the image container
-      document.querySelector(".image-container").style.display = "flex";
+
+      // Update Shayari
+      let currentIndex = 0;
+      function updateShayari() {
+        const sayariDiv = document.getElementById("sayari");
+        sayariDiv.innerHTML = shayaris[currentIndex];
+        sayariDiv.classList.add("show");
+        setTimeout(() => {
+          sayariDiv.classList.remove("show");
+        }, 19000);
+        currentIndex = (currentIndex + 1) % shayaris.length;
+      }
+      updateShayari();
+      setInterval(updateShayari, 20000);
     } else {
       alert(response.message || "Invalid username or password.");
     }
@@ -134,14 +260,18 @@ document.getElementById("in").addEventListener("click", async () => {
 
 // Function to validate the user
 async function validateUser(username, password) {
-  const url = 'https://script.google.com/macros/s/AKfycbww46sGfGv8UnfFGUMQalRB4E4rB7Du0ap0lA4IEtWv456JTIzBM57Bf-8pEsRQtwll/exec'; 
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-  });
-  const data = await response.json();
-  return data;
+  const url = "https://script.google.com/macros/s/AKfycbww46sGfGv8UnfFGUMQalRB4E4rB7Du0ap0lA4IEtWv456JTIzBM57Bf-8pEsRQtwll/exec";
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`,
+    });
+    return await response.json();
+  } catch (error) {
+    console.error("Error validating user:", error);
+    return { success: false, message: "Unable to validate user. Please try again." };
+  }
 }
 
 
