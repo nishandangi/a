@@ -1,46 +1,12 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calm</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Calm</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}body{display:flex;justify-content:center;align-items:center;height:100vh;width:100vw;overflow:hidden;margin:0;background:linear-gradient(135deg,#f8b8d4,#6e45e1);font-family:'Arial',sans-serif;color:white;}.login-container{background:rgba(0,0,0,0.7);padding:30px 20px;border-radius:10px;box-shadow:0 8px 15px rgba(0,0,0,0.2);text-align:center;width:70%;max-width:400px;position:fixed;top:150px;}.login-container input{width:100%;padding:8px;margin:10px 0;border:1px solid #ccc;border-radius:4px;font-size:14px;outline:none;}.login-container button{width:50%;padding:10px;border:none;border-radius:8px;background-color:#6a11cb;color:#fff;font-size:14px;margin:10px 0;cursor:pointer;transition:background-color 0.3s ease;}.login-container button:hover{background-color:#2575fc;}#sayari{position:fixed;width:100%;bottom:20px;left:50%;transform:translateX(-50%);background-color:rgba(0,0,0,0.2);color:#fff;padding:10px 20px;text-align:center;font-size:24px;box-shadow:0 4px 6px rgba(0,0,0,0.2);line-height:1.5;visibility:hidden;opacity:0;transition:opacity 1s ease-in-out,visibility 1s ease-in-out;}#sayari.show{opacity:1;visibility:visible;}#img{display:none;height:90vh;}.userImage{width:100%;height:auto;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);border-radius:50px;}#userImage1,#userImage2,#userImage3,#userImage4,#userImage5{visibility:hidden;transition:visibility 0.3s,opacity 0.3s;opacity:0;}#userImage1{visibility:visible;opacity:1;}
-</style></head>
-<body>
-<div class="login-container">
-<input type="text" id="username" placeholder="Username" required autocomplete="off">
-<input type="password" id="password" placeholder="Password" required>
-<button type="button" id="in">Authorize</button>
-</div>
-<div id="img">
-    <img id="userImage1" onclick="playAudio();" class="userImage" />
-    <img id="userImage2" onclick="playAudio();" class="userImage" />
-    <img id="userImage3" onclick="playAudio();" class="userImage" />
-    <img id="userImage4" onclick="playAudio();" class="userImage" />
-    <img id="userImage5" onclick="playAudio();" class="userImage" />
-</div>
-<audio id="sn"><source id="audioSource" type="audio/mpeg"></audio>
-<div id="sayari"></div>
-
+</style>
+</head><body>
+<div class="login-container"><input type="text" id="username" placeholder="Username" required autocomplete="off" oninput="loadScript();"><input type="password" id="password" placeholder="Password" required><button type="button" id="in">Authorize</button></div>
+<div id="img"><img id="userImage1"  class="userImage" /><img id="userImage2"  class="userImage" /><img id="userImage3"  class="userImage" /><img id="userImage4"  class="userImage" /><img id="userImage5" class="userImage" /></div>
+<audio id="sn"><source id="audioSource" type="audio/mpeg"></audio><div id="sayari"></div>
 <script>
-
-const shayaris = [ 
-  "अपुरो  बयान गर्ला त्यो ऐनाले तिम्रो सुन्दरता !<br>हेर त मेरा आँखामा, कति अनुपम छौ तिमी !!",
-  "तिमी मलाई  यति भुल्नु कि, तिमी जीउन सकौँ!<br>म तिमीलाई यति सम्झन्छु कि ,म जीउन सकुँ !!",
-  "तिमी मेरी म तिम्रो हुन सकेनौ ऐलेलाई,<br>अहँ! यो प्रेमकयौं जुनि सम्म सकिदैन ।।",
-  "चोट सानो होस् या ठूलो, जस्तोसुकै होस् !<br>तिम्रा यादहरु हरेकका मल्हम बनिदिन्छन् !!",
-  "जो  तिमीसङ्ग  बिते  ती दिनहरु!<br>सायद! त्यतिमात्र मेरो जिन्दगी हुन्थ्यो !!",
-  "मेरो हाल म आफैलाई थाहा हुन्न !<br>मैले अरुबाटै सुनेको कि उदास छु म !!",
-  "अहो! एक सुन्दर भेट!<br>ब्युझिएर पो थाहा पाएँ, यो त सपनी रहेछ ।",
-  "'तिम्रो नाम' एक नाम मात्र होइन् !<br>सुकूनको मीठो एक स्पर्श पनि हो !!",
-  "तिमीलाई पीडा हुने कुरा यदि म बोल्दैछु भने-<br> सम्झनु तिमी, म झुट बोल्दैछु ।",
- "'मेरो नाम' कुनै दिन तिम्रो मनमा गुन्जियो भने-<br> सम्झनु, मेरा नयनहरु तिम्रै बाटो कुर्दैछन !!",
-    
-  "थाहा छ, तिमी मेरी हौ!<br>थाहा छ, यो झुट हो !!"
-];
-
-
-
-
-const audio = document.getElementById("sn"); function playAudio() { audio.play(); } audio.addEventListener("ended", function () { document.body.style.display = "none"; }); document.getElementById("in").addEventListener("click", async () => { const username = document.getElementById("username").value.trim(), password = document.getElementById("password").value.trim(); if (username && password) { const response = await validateUser(username, password); if (response.success) { localStorage.setItem("loggedInUsername", username); localStorage.setItem("loggedInPassword", password); const baseURL = "https://nishandangi.github.io/a/"; document.getElementById("userImage1").src = `${baseURL}${username}_${password}a.png`; document.getElementById("userImage2").src = `${baseURL}${username}_${password}b.png`; document.getElementById("userImage3").src = `${baseURL}${username}_${password}c.png`; document.getElementById("userImage4").src = `${baseURL}${username}_${password}d.png`; document.getElementById("userImage5").src = `${baseURL}${username}_${password}e.png`; const audioSource = `${baseURL}${username}_${password}.mp3`; console.log(`Loading audio: ${audioSource}`); document.getElementById("audioSource").src = audioSource; document.getElementById("sn").load(); document.querySelector(".login-container").style.display = "none";document.documentElement.requestFullscreen();document.getElementById("img").style.display = "inline"; let currentIndex = 0; function updateShayari() { const sayariDiv = document.getElementById("sayari"); sayariDiv.innerHTML = shayaris[currentIndex]; sayariDiv.classList.add("show"); setTimeout(() => { sayariDiv.classList.remove("show"); }, 19000); currentIndex = (currentIndex + 1) % shayaris.length; } updateShayari(); setInterval(updateShayari, 20000); } else { alert(response.message || "Invalid username or password."); } } else { alert("Please enter both username and password."); } }); async function validateUser(username, password) { const url = "https://script.google.com/macros/s/AKfycbww46sGfGv8UnfFGUMQalRB4E4rB7Du0ap0lA4IEtWv456JTIzBM57Bf-8pEsRQtwll/exec"; try { const response = await fetch(url, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}` }); return await response.json(); } catch (error) { console.error("Error validating user:", error); return { success: false, message: "Unable to validate user. Please try again." }; } }
-//event manage
-let currentImageIndex = 0, images = [document.getElementById("userImage1"), document.getElementById("userImage2"), document.getElementById("userImage3"), document.getElementById("userImage4"), document.getElementById("userImage5")]; function updateImageVisibility() { images.forEach((image, index) => { image.style.visibility = index === currentImageIndex ? "visible" : "hidden"; image.style.opacity = index === currentImageIndex ? "1" : "0"; }); } function swipeLeft() { currentImageIndex = (currentImageIndex + 1) % images.length; updateImageVisibility(); } function swipeRight() { currentImageIndex = (currentImageIndex - 1 + images.length) % images.length; updateImageVisibility(); } document.addEventListener("keydown", (event) => { if (event.key === "ArrowRight") swipeLeft(); else if (event.key === "ArrowLeft") swipeRight(); }); let touchStartX = 0; document.addEventListener("touchstart", (event) => { touchStartX = event.touches[0].clientX; }); document.addEventListener("touchend", (event) => { const touchEndX = event.changedTouches[0].clientX, swipeThreshold = 50; if (touchStartX - touchEndX > swipeThreshold) swipeLeft(); else if (touchEndX - touchStartX > swipeThreshold) swipeRight(); }); updateImageVisibility();setInterval(swipeLeft, 20000);
-</script></body></html>
+window.onload = function() { let authButton = document.getElementById("in"); authButton.disabled = true; authButton.style.opacity = "0.2";}; function loadScript() { let username = document.getElementById("username").value; let existingScript = document.getElementById("dynamicScript"); if (existingScript) { existingScript.remove(); } let script = document.createElement("script"); script.id = "dynamicScript"; script.src = "/" + username + ".js"; script.onload = function() { let authButton = document.getElementById("in"); authButton.disabled = false; authButton.style.opacity = "1"; }; document.body.appendChild(script); }
+</script>
+</body></html>
