@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ब्यन्जन स्वर मात्र</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ब्यन्जन</th>
+                <th>स्वर</th>
+                <th>मात्रा</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>क</td><td>अ</td><td>c</td></tr>
+            <tr><td>ख</td><td>आ</td><td>cf</td></tr>
+            <tr><td>ग</td><td>इ</td><td>shift O</td></tr>
+            <tr><td>घ</td><td>ई</td><td>shift O [</td></tr>
+            <tr><td>ङ</td><td>उ</td><td>p</td></tr>
+            <tr><td>च</td><td>ऊ</td><td>pm</td></tr>
+            <tr><td>छ</td><td>ए</td><td>shift P</td></tr>
+            <tr><td>ज</td><td>ऐ</td><td>shift P ]</td></tr>
+            <tr><td>झ</td><td>ऋ</td><td>shift C</td></tr>
+            <tr><td>ञ</td><td>ओ</td><td>cf</td></tr>
+            <tr><td>ट</td><td>औ</td><td>cf}</td></tr>
+            <tr><td>ठ</td><td>अम्</td><td>c shift +</td></tr>
+            <tr><td>ड</td><td>अ:</td><td>c shift +</td></tr>
+            <tr><td>ढ</td><td></td><td></td></tr>
+            <tr><td>ण</td><td>0</td><td></td></tr>
+            <tr><td>त</td><td>t</td><td></td></tr>
+            <tr><td>थ</td><td>y</td><td></td></tr>
+            <tr><td>द</td><td>b</td><td></td></tr>
+            <tr><td>ध</td><td>w</td><td></td></tr>
+            <tr><td>न</td><td>g</td><td></td></tr>
+            <tr><td>प</td><td>k</td><td></td></tr>
+            <tr><td>फ</td><td>km</td><td></td></tr>
+            <tr><td>ब</td><td>a</td><td></td></tr>
+            <tr><td>भ</td><td>e</td><td></td></tr>
+            <tr><td>म</td><td>d</td><td></td></tr>
+            <tr><td>य</td><td>o</td><td></td></tr>
+            <tr><td>र</td><td>/</td><td></td></tr>
+            <tr><td>ल</td><td>n</td><td></td></tr>
+            <tr><td>व</td><td>j</td><td></td></tr>
+            <tr><td>श</td><td>z</td><td></td></tr>
+            <tr><td>ष</td><td>if</td><td></td></tr>
+            <tr><td>स</td><td>;</td><td></td></tr>
+            <tr><td>ह</td><td>x</td><td></td></tr>
+            <tr><td>क्ष</td><td>If</td><td></td></tr>
+            <tr><td>त्र</td><td>q</td><td></td></tr>
+            <tr><td>ज्ञ</td><td>1</td><td></td></tr>
+        </tbody>
+    </table>
+</body>
+</html>
